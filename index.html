@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A Thesis Compendium</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="favicon.png" />
+</head>
+<body>
+	<main class="container">
+		<div class="instructions">
+			<h1 class="title">A Thesis Compendium</h1>
+			<p class="desc">I have something I’d like for you to read, but I need your help to put it together. Would you be willing to lend me a hand?</p>
+			<p class="desc">I have a few questions for you:</p>
+			<div class="step" data-state="active" id="dimensions">
+				<div class="step-number">1</div>
+				<div class="step-content">
+					<p>What page size would you like?</p>
+					<div class="options">
+						<div class="option" data-state="inactive" data-group="dimensions" onclick="selectOption(this, [8.5,11])">8.5" x 11"</div>
+						<div class="option" data-state="inactive" data-group="dimensions" onclick="selectOption(this, [11,17])">11" x 17"</div>
+					</div>
+				</div>
+			</div>
+			<div class="step" data-state="inactive" id="orientation">
+				<div class="step-number">2</div>
+				<div class="step-content">
+					<p>And in which orientation?</p>
+					<div class="options">
+						<div class="option" data-state="inactive" data-group="orientation" onclick="selectOption(this, 'portrait')">Portrait</div>
+						<div class="option" data-state="inactive" data-group="orientation" onclick="selectOption(this, 'landscape')">Landscape</div>
+					</div>
+				</div>
+			</div>
+			<div class="step" data-state="inactive" id="format">
+				<div class="step-number">3</div>
+				<div class="step-content">
+					<p>Would you prefer to have a book or a poster?</p>
+					<div class="options">
+						<div class="option" data-state="inactive" data-group="format" onclick="selectOption(this, 'book')">Book</div>
+						<div class="option" data-state="inactive" data-group="format" onclick="selectOption(this, 'poster')">Poster</div>
+					</div>
+				</div>
+			</div>
+			<div class="step" data-state="inactive" id="pages">
+				<div class="step-number">4</div>
+				<div class="step-content">
+					<p>How many pages long do you want your book to be?</p>
+					<div class="options">
+						<div class="option-increment" data-group="pages" onclick="selectIncrement(this, -1)">-</div>
+						<div class="option-value" data-group="pages">1</div>
+						<div class="option-increment" data-group="pages" onclick="selectIncrement(this, 1)">+</div>
+					</div>
+				</div>
+			</div>
+			<div class="step" data-state="inactive" id="width">
+				<div class="step-number">4</div>
+				<div class="step-content">
+					<p>How many pages wide do you want your poster to be?</p>
+					<div class="options">
+						<div class="option-increment" data-group="width" onclick="selectIncrement(this, -1)">-</div>
+						<div class="option-value" data-group="width">1</div>
+						<div class="option-increment" data-group="width" onclick="selectIncrement(this, 1)">+</div>
+					</div>
+				</div>
+			</div>
+			<div class="step" data-state="inactive" id="height">
+				<div class="step-number">5</div>
+				<div class="step-content">
+					<p>How many pages tall do you want your poster to be?</p>
+					<div class="options">
+						<div class="option-increment" data-group="height" onclick="selectIncrement(this, -1)">-</div>
+						<div class="option-value" data-group="height">1</div>
+						<div class="option-increment" data-group="height" onclick="selectIncrement(this, 1)">+</div>
+					</div>
+				</div>
+			</div>
+			<p class="desc" id="conclusion-text" data-state="inactive">Thank you for answering my questions. I think everything is coming together. All that’s left to do is print.</p>
+			<div class="print" id="conclusion-print" data-state="inactive" onclick="generatePrint();">Print</div>
+		</div>
+
+		<div class="content">
+			This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.
+			This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.This is a thesis compendium. “A,” as in, one of many. One of many among the work of my peers. One of many among the work of prior cohorts. One of many among my own prior drafts. And, one of many among itself — a “thing,” produced and distributed — one of which you have in front of you to read right now. I’ve written this compendium in English and code, and to read this you’ve generated a version of this English using that code.
+		</div>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>
