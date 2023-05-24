@@ -1,87 +1,89 @@
-let settings = {
-	"dimensions": [8.5,11],
-	"orientation": "portait",
-	"format": "book",
-	"pages": 1,
-	"width": 1,
-	"height": 1
-}
-
-let stepDimensions = document.querySelector("#dimensions");
-let stepOrientation = document.querySelector("#orientation");
-let stepFormat = document.querySelector("#format");
-let stepPages = document.querySelector("#pages");
-let stepWidth = document.querySelector("#width");
-let stepHeight = document.querySelector("#height");
-let conclusionText = document.querySelector("#conclusion-text");
-let conclusionPrint = document.querySelector("#conclusion-print");
-
-function selectOption(e, val) {
-	let group = e.dataset.group;
-	let btns = document.querySelectorAll(`[data-group="${group}"]`);
-	for (let btn of btns) {
-		btn.dataset.state = "inactive";
-	}
-	e.dataset.state = "active";
-	settings[group] = val;
-	if (group == "dimensions") {
-		stepOrientation.dataset.state = "active";
-		stepOrientation.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-	} else if (group == "orientation") {
-		stepFormat.dataset.state = "active";
-		stepFormat.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-	} else if (group == "format") {
-		conclusionText.dataset.state = "active";
-		conclusionPrint.dataset.state = "active";
-		if (val == "book") {
-			stepPages.dataset.state = "active";
-			stepWidth.dataset.state = "inactive";
-			stepHeight.dataset.state = "inactive";
-			stepPages.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-		} else {
-			stepPages.dataset.state = "inactive";
-			stepWidth.dataset.state = "active";
-			stepHeight.dataset.state = "active";
-			stepHeight.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+// Run through question
+let transition = false;
+let questionLine = 0;
+let questionLines = [];
+let activeQuestion;
+function runQuestion() {
+	activeQuestion = document.querySelector(".question[data-active='1']");
+	transition = true;
+	questionLine = 0;
+	questionLines = activeQuestion.querySelectorAll(".question-line");
+	runLines();
+	let wait = setInterval(() => {
+		if (transition == false) {
+			clearInterval(wait);
+			if (activeQuestion.dataset.next != "null") {
+				gotoQuestion(activeQuestion.dataset.next);
+			}
 		}
+	}, 50)
+}
+
+// Fade in individual lines
+function runLines() {
+	let activeLine = questionLines[questionLine];
+	activeLine.dataset.active = 1;
+	setTimeout(() => {
+		questionLine += 1;
+		if (questionLine >= questionLines.length) {
+			transition = false;
+		} else {
+			runLines();
+		}
+	}, activeLine.dataset.delay)
+}
+
+// Transition between questions
+function gotoQuestion(question) {
+	let targetQuestion = document.querySelector(`.question[data-question='${question}']`);
+
+	// Transition out current question
+	activeQuestion.dataset.active = 0;
+
+	setTimeout(() => {
+		for (let line of targetQuestion.querySelectorAll(".question-line")) {
+			line.dataset.active = 0;
+		}
+		targetQuestion.dataset.active = 1;
+		setTimeout(() => {
+			runQuestion();
+		}, 50);
+	}, 1000)
+}
+
+// Start the show
+let firstQuestion = document.querySelector(".question[data-question='0']");
+firstQuestion.dataset.active = 1;
+setTimeout(() => {
+	runQuestion();
+}, 50)
+
+// Store user responses for later reference
+let responses = {}
+function setResponse(key, value) {
+	responses[key] = value;
+}
+
+// Populate response from previous question
+function populateResponse(target, key) {
+	let element = document.querySelector("#"+target);
+	element.innerText = responses[key];
+}
+
+// Site timer
+let time = 0;
+let timestamp = document.querySelector("#timestamp");
+setInterval(() => {
+	time++;
+	timestamp.innerText = time;
+}, 1000)
+
+// Create options for question (NOT IN USE)
+function populateOptions(question) {
+	let options = question.querySelector(".question-options");
+	let temp = "";
+	for (let i=0; i<parseInt(options.dataset.quantity); i++) {
+		temp += `<button class="question-line question-option" onclick="gotoQuestion('${options.dataset.next}'); setResponse('${options.dataset.record}', '${optionSource[question.dataset.source][i]}')" data-delay="300" data-active="0">${optionSource[question.dataset.source][i]}</button>`
 	}
-}
-
-function selectIncrement(e, val) {
-	let group = e.dataset.group;
-	let value = document.querySelector(`.option-value[data-group='${group}'`);
-	settings[group] += val;
-	if (settings[group] == 0) {
-		settings[group] = 1;
-	}
-	value.innerText = settings[group];
-}
-
-function generatePrint() {
-	const isOverflown = ({ clientHeight, scrollHeight }) => scrollHeight > clientHeight
-
-const resizeText = ({ element, elements, minSize = 10, maxSize = 512, step = 1, unit = 'px' }) => {
-  (elements || [element]).forEach(el => {
-    let i = minSize
-    let overflow = false
-
-        const parent = el.parentNode
-
-    while (!overflow && i < maxSize) {
-        el.style.fontSize = `${i}${unit}`
-        overflow = isOverflown(parent)
-
-      if (!overflow) i += step
-    }
-
-    // revert to last state where no overflow happened
-    el.style.fontSize = `${i - step}${unit}`
-  })
-}
-resizeText({
-	elements: document.querySelectorAll('.content'),
-	step: 0.5
-  })
-	  
-	window.print();
+	options.innerHTML += temp;
 }

@@ -1,0 +1,83 @@
+:root {
+	--wght: 500;
+	--SRFF: 50;
+	--width: 100in;
+	--height: 100in;
+	--pages: 1;
+	--margin: 0.25in;
+	--weight: 500;
+	--serif: 50;
+	--background-color: white;
+	--text-color: black;
+	--font-size: 1rem;
+}
+@font-face {
+	font-family: Limkin;
+	src: url("../assets/limkin.ttf");
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Printable content */
+.printout {
+	font-family: Limkin;
+	margin: 0;
+	padding: 4pt;
+	width: var(--width);
+	height: var(--height);
+	font-size: var(--font-size);
+	font-variation-settings: "wght" 500, "SRFF" 50;
+	overflow: hidden;
+	text-align: justify;
+	transition: font-size .2s;
+	visibility: hidden;
+}
+.printout * {
+	margin: 0;
+	font-size: var(--font-size);
+	line-height: 2em;
+}
+.printout section {
+	display: inline;
+}
+.printout-heading {
+	border: .1em solid black;
+	display: inline;
+	background-color: black;
+	color: white;
+	padding: .4em .8em .25em .8em;
+	border-radius: 2em;
+}
+.printout-subheading {
+	display: inline;
+	border: .1em solid black;
+	padding: .4em .8em .25em .8em;
+	border-radius: 2em;
+}
+.printout-paragraph {
+	display: inline;
+	border: .1em solid black;
+	padding: .4em .8em .25em .8em;
+	border-radius: 2em;
+}
+#printout-end {
+	display: inline;
+	width: 1em;
+	height: 1em;
+	background-color: white;
+}
+@page {
+	size: 100in 100in;
+	margin: 0;
+}
+@media print {
+	.instructions {
+		display: none;
+	}
+	.printout {
+		visibility: unset;
+	}
+}

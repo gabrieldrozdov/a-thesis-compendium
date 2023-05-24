@@ -1,165 +1,99 @@
 @font-face {
 	font-family: Limkin;
-	src: url("Limkin.ttf");
+	src: url("assets/limkin.ttf");
 }
 * {
-	font-family: Limkin;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-variation-settings: "wght" 500, "SRFF" 50;
-	letter-spacing: -.02em;
-	line-height: 1.2em;
 }
-html {
-	font-size: 5vw;
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 }
-.instructions {
-	padding: 1rem;
-}
-.title {
-	background-color: black;
-	color: white;
-	font-size: 1rem;
-	border-radius: 2rem;
-	display: inline-block;
-	padding: .45rem 1rem .3rem 1rem;
-	margin-bottom: 1rem;
-}
-.desc {
-	padding-bottom: 1rem;
-}
-.desc[data-state="inactive"] {
-	display: none;
-}
-.step {
-	display: grid;
-	grid-template-columns: 1fr 10fr;
-	gap: 1rem;
-	width: 100%;
-	padding-bottom: 1rem;
-}
-.step[data-state="inactive"] {
-	display: none;
-}
-.step-number {
-	background-color: black;
-	color: white;
-	border-radius: 50%;
-	height: 1rem;
-	width: 1rem;
-	line-height: 0;
-	padding-top: .09rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	font-size: .5rem;
-}
-.options {
-	margin-top: .25rem;
+
+/* Questions */
+.questions {
 	display: flex;
-	column-gap: .25rem;
-	align-items: center;
-	-webkit-user-select: none; /* Safari */
-	-ms-user-select: none; /* IE 10 and IE 11 */
-	user-select: none; /* Standard syntax */  
-}
-.option {
-	border: .1rem solid black;
-	border-radius: 2rem;
-	text-align: center;
-	font-size: .5rem;
-	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: .18rem .3rem .09rem .3rem;
-	cursor: pointer;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 }
-.option:hover {
-	color: white;
-	background-color: black;
+.questions * {
+	line-height: 2.4rem;
+	font-family: Limkin;
+	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-size: 2rem;
 }
-.option:active {
-	transform: scale(.9);
-}
-.option[data-state="active"] {
-	background-color: black;
-	color: white;
-}
-.option-increment {
-	border: .1rem solid black;
-	border-radius: 2rem;
-	text-align: center;
-	font-size: .5rem;
-	height: 1.1rem;
-	aspect-ratio: 1/1;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding-top: .05rem;
-	cursor: pointer;
-}
-.option-increment:hover {
-	color: white;
-	background-color: black;
-}
-.option-increment:active {
-	transform: scale(.9);
-}
-.option-value {
-	border-radius: 2rem;
-	text-align: center;
-	font-size: .5rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding: .18rem .3rem .09rem .3rem;
-}
-.print {
+.question {
 	width: 100%;
-	text-align: center;
-	border: .1rem solid black;
-	font-size: 1rem;
-	border-radius: 2rem;
-	display: inline-block;
-	padding: .45rem 1rem .3rem 1rem;
-	cursor: pointer;
-	-webkit-user-select: none; /* Safari */
-	-ms-user-select: none; /* IE 10 and IE 11 */
-	user-select: none; /* Standard syntax */  
+	height: 100%;
+	padding: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	gap: 1.2em;
+	transition: opacity 1s, transform 1s;
 }
-.print:hover {
+.question[data-active="0"] {
+	pointer-events: none;
+	opacity: 0;
+	transform: translateY(1em);
+}
+.question-subcontainer {
+	max-width: 800px;
+	width: 100%;
+}
+.question-line {
+	opacity: 0;
+	transition: opacity 1s, transform 1s;
+}
+.question-line[data-active="0"] {
+	pointer-events: none;
+	transform: translateY(1.2rem);
+}
+.question-line[data-active="1"] {
+	opacity: 1;
+}
+.question-bubble {
+	width: auto;
+	align-self: center;
 	background-color: black;
 	color: white;
+	line-height: 1.2em;
+	padding: .8em 1.2em .6em 1.2em;
+	border-radius: 3rem;
 }
-.print:active {
+.question-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .3em;
+}
+.question-option {
+	margin: 0;
+	min-width: 80px;
+	font-size: 1.4rem;
+	line-height: 1.4em;
+	border: .2rem solid black;
+	background-color: white;
+	padding: .6em 1.2em .4em 1.2em;
+	border-radius: 2rem;
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+}
+.question-option:hover {
+	background-color: black;
+	color: white;
+	transition: opacity .2s, transform .2s;
+}
+.question-option:active {
 	transform: scale(.9);
-}
-.print[data-state="inactive"] {
-	display: none;
-}
-.content {
-	margin: 0;
-	padding: 0;
-	width: 8.5in;
-	height: 11in;
-}
-.content p {
-	margin: 0;
-}
-
-@page {
-	size: 8.5in 11in;
-	margin: 0 0 0 0;
-}
-
-@media print {
-	.instructions {
-		display: none;
-	}
-	.content {
-		font-size: 12pt;
-		display: block;
-	}
 }
