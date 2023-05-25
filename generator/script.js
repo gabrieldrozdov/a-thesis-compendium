@@ -145,10 +145,10 @@ function generatePoster() {
 			let setSizing = setInterval(() => {
 				currentSize -= .005;
 				root.style.setProperty("--font-size", currentSize+"rem");
-		
 				printoutPosition = printout.getBoundingClientRect();
 				printoutEndPosition = printoutEnd.getBoundingClientRect();
 				if (printoutEndPosition.bottom < printoutPosition.bottom) {
+					console.log(printoutEndPosition.bottom, printoutPosition.bottom)
 					clearInterval(setSizing);
 					container.style.overflow = "unset";
 					window.print();
@@ -156,8 +156,11 @@ function generatePoster() {
 					container.style.overflow = "hidden";
 					generateBtn.style.opacity = 1;
 					generateBtn.innerText = "Generate your poster";
+				} else if (currentSize < 0) {
+					clearInterval(setSizing);
+					generatePoster();
 				}
-			}, 5)
+			}, 50)
 		} else {
 			let setSizing = setInterval(() => {
 				currentSize += .005;
@@ -174,8 +177,11 @@ function generatePoster() {
 					container.style.overflow = "hidden";
 					generateBtn.style.opacity = 1;
 					generateBtn.innerText = "Generate your poster";
+				} else if (currentSize < 0) {
+					clearInterval(setSizing);
+					generatePoster();
 				}
-			}, 5)
+			}, 50)
 		}
 	}, 500)
 }
