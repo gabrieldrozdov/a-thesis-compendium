@@ -18,37 +18,37 @@
 		</div>
 
 		<div class="question" data-question="1" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
 				I have something I’d like for you to read, but I need your help to put it together.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="1500" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
 				Would you be willing to lend me a hand?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('2'); setResponse('q1', 'Yes');" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('2'); setResponse('q1', 'Yes'); showProgress();" data-delay="300" data-active="0">
 					Yes
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('2'); setResponse('q1', 'No');" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('2'); setResponse('q1', 'No'); showProgress();" data-delay="300" data-active="0">
 					No
 				</button>
 			</div>
 		</div>
 
 		<div class="question" data-question="2" data-next="3" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
 				I’ve been working on this thesis compendium. Someone told me to make it. I probably wouldn’t have made it otherwise.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="5500" data-active="0">
 				But, here we are. Or rather, here I am, and there you&nbsp;are.
 			</p>
 		</div>
 		
 		<div class="question" data-question="3" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
 				It’d be nice if we got to know each other better. What’s your name?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('4');" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('4'); setProgress('50%');" data-delay="300" data-active="0">
 					Click here to enter your name
 				</button>
 			</div>
@@ -61,43 +61,43 @@
 		</div>
 
 		<div class="question" data-question="5" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="6000" data-active="0">
 				My job is to design things. Practically speaking, that means that I get paid to create artifacts of visual, auditory, and experiential communication.
 			</p>
 			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
 				Does my job make sense?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '0')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '0'); setProgress('75%');" data-delay="300" data-active="0">
 					0
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '1')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '1'); setProgress('75%');" data-delay="300" data-active="0">
 					1
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '2')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '2'); setProgress('75%');" data-delay="300" data-active="0">
 					2
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '3')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '3'); setProgress('75%');" data-delay="300" data-active="0">
 					3
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '4')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '4'); setProgress('75%');" data-delay="300" data-active="0">
 					4
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '5')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('6'); setResponse('q5', '5'); setProgress('75%');" data-delay="300" data-active="0">
 					5
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="6" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="5500" data-active="0">
 				Before I studied design, I studied computer science and theater. Because of these experiences, I think of design as medium-agnostic.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="2500" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
 				To me, design is about the performativity of objects, and the relationships between objects and people.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('7');" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('7'); setProgress('20%');" data-delay="300" data-active="0">
 					Can you define “performativity” for me?
 				</button>
 			</div>
@@ -108,7 +108,7 @@
 				To be honest, I don’t have a strong grasp of what that means.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('8');" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('8'); setProgress('95%');" data-delay="300" data-active="0">
 					I think “performativity” is the ability for someone or something to initiate and partake in a transformative experience
 				</button>
 			</div>
@@ -119,10 +119,10 @@
 				That was pretty good, but what is a “transformative” experience?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('9'); setResponse('q8', 'It’s when a shift in identity occurs, where one person or thing adopts a new role, even if momentarily')" data-delay="2000" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('9'); setResponse('q8', 'It’s when a shift in identity occurs, where one person or thing adopts a new role, even if momentarily'); setProgress('99%');" data-delay="2000" data-active="0">
 					It’s when a shift in identity occurs, where one person or thing adopts a new role, even if momentarily
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('9'); setResponse('q8', 'I dunno')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('9'); setResponse('q8', 'I dunno'); setProgress('5%');" data-delay="300" data-active="0">
 					I dunno
 				</button>
 			</div>
@@ -135,86 +135,86 @@
 		</div>
 		
 		<div class="question" data-question="10" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
 				Erika writes about a feedback loop that occurs during a performance.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="7500" data-active="0">
 				A performer acts, and a listener-spectator subtly reacts. The performer then reacts to this reaction, momentarily becoming a listener-spectator themself. Erika calls this the “autopoietic feedback loop.”
 			</p>
-			<p class="question-line question-subcontainer" data-delay="1500" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
 				Does this feedback loop make sense?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😆')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😆'); setProgress('0%');" data-delay="300" data-active="0">
 					😆
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😇')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😇'); setProgress('0%');" data-delay="300" data-active="0">
 					😇
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😘')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '😘'); setProgress('0%');" data-delay="300" data-active="0">
 					😘
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '🤑')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('11'); setResponse('q10', '🤑'); setProgress('0%');" data-delay="300" data-active="0">
 					🤑
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="11" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="6000" data-active="0">
 				I grew up loving video games. It took me a long time to realize that the experience of playing a video game is a feedback loop similar to what Erika describes.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="2500" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3500" data-active="0">
 				The player is constantly switching roles with the game, acting and reacting in turn.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('12'); setResponse('q10', 'Just like how I’m reacting right now')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('12'); setResponse('q10', 'Just like how I’m reacting right now'); setProgress('50%');" data-delay="2000" data-active="0">
 					Just like how I’m reacting right now
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('12'); setResponse('q10', 'Except that I can only pick from the reactions you give me')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('12'); setResponse('q10', 'Except that I can only pick from the reactions you give me'); setProgress('50%');" data-delay="800" data-active="0">
 					Except that I can only pick from the reactions you give me
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="12" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
 				But there’s a funny illusion with video games.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
 				During performances, people have the ability to act and react because people are conscious.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="1500" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
 				Does that mean video games can’t be performative?
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'Yes')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'Yes'); setProgress('150%');" data-delay="300" data-active="0">
 					Yes
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'No')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'No'); setProgress('150%');" data-delay="300" data-active="0">
 					No
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'That’s a rhetorical question')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('13'); setResponse('q11', 'That’s a rhetorical question'); setProgress('150%');" data-delay="300" data-active="0">
 					That’s a rhetorical question
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="13" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="4500" data-active="0">
 				It’s true that in digital media, our interactions have to be much more precise than in live performance.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="7000" data-active="0">
 				But at the same time, live performance has its own limited set of possibilities. Even if there are subtle changes with each performance, a play will still transpire in a relatively similar manner each time.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'And my responses to these questions don’t matter'); populateResponse('q13-response', 'q13')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'And my responses to these questions don’t matter'); populateResponse('q13-response', 'q13'); setProgress('50%');" data-delay="2000" data-active="0">
 					And my responses to these questions don’t matter
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'Or rather, they don’t change anything'); populateResponse('q13-response', 'q13')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'Or rather, they don’t change anything'); populateResponse('q13-response', 'q13'); setProgress('50%');" data-delay="2000" data-active="0">
 					Or rather, they don’t change anything
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'Well, they don’t change anything for you'); populateResponse('q13-response', 'q13')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('14'); setResponse('q13', 'Well, they don’t change anything for you'); populateResponse('q13-response', 'q13'); setProgress('50%');" data-delay="800" data-active="0">
 					Well, they don’t change anything for you
 				</button>
 			</div>
@@ -224,23 +224,23 @@
 			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
 				Even though I’m carefully crafting this experience, I can see glimpses of you.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="7000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="8500" data-active="0">
 				For instance, I know you answered “<span id="q13-response"></span>” to the last question. I also know that you’ve spent <span id="timestamp"></span> seconds on this page so far. These details are the sorts of things I could respond to, if I wanted to.
 			</p>
 		</div>
 		
 		<div class="question" data-question="15" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3500" data-active="0">
 				And even though you have a limited set of ways to respond, your full array of options are vast.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
 				With just the few options presented so far, there are 1,728 total permutations of possible outcomes.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('16'); setResponse('q15', 'And with these two responses')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('16'); setResponse('q15', 'And with these two responses'); setProgress('75%');" data-delay="1500" data-active="0">
 					And with these two responses
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('16'); setResponse('q15', 'Those possibilities are now doubled to 3,456')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('16'); setResponse('q15', 'Those possibilities are now doubled to 3,456'); setProgress('75%');" data-delay="800" data-active="0">
 					Those possibilities are now doubled to 3,456
 				</button>
 			</div>
@@ -250,33 +250,33 @@
 			<p class="question-line question-subcontainer" data-delay="3500" data-active="0">
 				At the start, I said I needed your help to put this thesis compendium together.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="6000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="7500" data-active="0">
 				When I first started this project, I knew I wanted to include you in the process somehow. Without you, an audience of some sort, this thesis compendium doesn’t really exist.
 			</p>
 		</div>
 		
 		<div class="question" data-question="17" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
 				I thought I would create a tool to let you design a version of the compendium. That’s why I called this “A Thesis Compendium” — one of many permutations.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among your drafts')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among your drafts'); setProgress('85%');" data-delay="2000" data-active="0">
 					Also, one of many among your drafts
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among the work of your peers')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among the work of your peers'); setProgress('85%');" data-delay="2000" data-active="0">
 					Also, one of many among the work of your peers
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among the work of prior cohorts')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('18'); setResponse('q17', 'Also, one of many among the work of prior cohorts'); setProgress('85%');" data-delay="800" data-active="0">
 					Also, one of many among the work of prior cohorts
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="18" data-next="19" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="7500" data-active="0">
 				But in crafting this collaborative design experience, I have realized that this is “a” thesis compendium also because it is one of many possible experiences of a thesis compendium.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="6000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="7500" data-active="0">
 				That singular experience is your experience, the one you are having right now. That experience is a performance, a transformative collaboration with an inanimate object.
 			</p>
 		</div>
@@ -286,33 +286,33 @@
 				That is my job — to craft an experience by creating the things that manifest it.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'What is the value of these experiences, economically and culturally?')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'What is the value of these experiences, economically and culturally?'); setProgress('95%');" data-delay="2000" data-active="0">
 					What is the value of these experiences, economically and culturally?
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'How can these ideas play into the work of a commercial studio?')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'How can these ideas play into the work of a commercial studio?'); setProgress('95%');" data-delay="2000" data-active="0">
 					How can these ideas play into the work of a commercial studio?
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'Is this kind of work art, or is it a service?')" data-delay="800" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('20'); setResponse('19', 'Is this kind of work art, or is it a service?'); setProgress('95%');" data-delay="800" data-active="0">
 					Is this kind of work art, or is it a service?
 				</button>
 			</div>
 		</div>
 		
 		<div class="question" data-question="20" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="2000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
 				Those are the questions that my practice deals with.
 			</p>
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="6000" data-active="0">
 				I make playful, interactive experiences because I want us to collaborate in a performance. And I believe every part of that experience matters — I even designed the typeface used here.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'I’m glad you like my font.'); populateResponse('q20-response', 'q20')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'I’m glad you like my font.'); populateResponse('q20-response', 'q20'); setProgress('300%');" data-delay="300" data-active="0">
 					I like it
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'It’s okay that you don’t like my font.'); populateResponse('q20-response', 'q20')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'It’s okay that you don’t like my font.'); populateResponse('q20-response', 'q20'); setProgress('0%');" data-delay="300" data-active="0">
 					I hate it
 				</button>
-				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'Your opinion does matter, at least to me.'); populateResponse('q20-response', 'q20')" data-delay="300" data-active="0">
+				<button class="question-line question-option" onclick="gotoQuestion('21'); setResponse('q20', 'Your opinion does matter, at least to me.'); populateResponse('q20-response', 'q20'); setProgress('50%');" data-delay="300" data-active="0">
 					My opinion doesn’t matter
 				</button>
 			</div>
@@ -322,17 +322,17 @@
 			<p class="question-line question-subcontainer" data-delay="4000" data-active="0">
 				<span id="q20-response"></span>
 			</p>
-			<p class="question-line question-subcontainer" data-delay="7000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="8000" data-active="0">
 				But it’s not a simple like-or-hate relationship that affects this performance. It’s a deeper dialogue involving medium, voice, form, narrative, interface, and all the details that fall in between.
 			</p>
 		</div>
 		
 		<div class="question" data-question="22" data-next="null" data-active="0">
-			<p class="question-line question-subcontainer" data-delay="3000" data-active="0">
+			<p class="question-line question-subcontainer" data-delay="5000" data-active="0">
 				At this point, I have conveyed everything I wanted to tell you. All that remains is to show you my actual thesis compendium, if that’s what you want.
 			</p>
 			<div class="question-options question-subcontainer" data-source="null">
-				<a class="question-line question-option" href="generator/" data-delay="800" data-active="0">
+				<a class="question-line question-option" href="generator/" data-delay="2000" data-active="0">
 					Yes
 				</a>
 				<a class="question-line question-option" href="generator/" data-delay="800" data-active="0">
@@ -342,6 +342,14 @@
 		</div>
 
 	</main>
+
+	<!-- PROGRESS BAR -->
+	<div class="progress">
+		<h2>PROGRESS</h2>
+		<div class="progress-bar">
+			<div class="progress-bar-fill"></div>
+		</div>
+	</div>
 
 	<script src="script.js"></script>
 </body>

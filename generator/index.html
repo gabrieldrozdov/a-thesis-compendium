@@ -10,413 +10,397 @@
 	<style id="page">
 		@page {
 			size: 8.5in 11in;
-			margin: .5in;
+			margin: 1in;
 		}
 	</style>
 </head>
 <body>
+	<div class="settings">
+		<div class="settings-content">
+			<h1 class="settings-title">A Thesis Compendium</h1>
+			<p class="settings-desc">
+				This compendium is not designed. Well, sort of. To read something, that thing has to be designed. Design determines legibility, and legibility is a kind of power.
+			</p>
+			<p class="settings-desc">
+				You get to design this compendium. Or, you get to design a part of it, since the text itself is a sort of design that I can’t give up. Or really, you get to answer the following questions, which will design a compendium for/with you.
+			</p>
+			<p class="settings-desc">
+				Use this website to generate a thesis compendium. Answer a few questions to receive a printed copy.*
+			</p>
+			<p class="settings-desc">
+				*Printer not included.
+			</p>
 
-	<div class="container">
-		<div class="settings">
-			<div class="settings-content">
-				<h1 class="settings-title">A Thesis Compendium</h1>
-				<p class="settings-desc">
-					This compendium is not designed. To read something, that thing has to be designed. Design determines legibility, and legibility is power.
-				</p>
-				<p class="settings-desc">
-					You get to design this compendium. Or, you get to design a part of it, since the text itself is a sort of design that I can’t give up.
-				</p>
-				<p class="settings-desc">
-					Use this website to generate a thesis compendium. Answer a few questions to receive a printed copy.*
-				</p>
-				<p class="settings-desc">
-					*Printer not included.
-				</p>
-				<div class="question settings-question">
-					<div class="settings-question-number">1</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">Would you like to design something to read or something to look at?</div>
-						<div class="settings-question-options" data-group="format">
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setFormat('book'); showUnits();">Something to read</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setFormat('poster'); showUnits();">Something to look at</div>
-						</div>
+			<!-- Format -->
+			<div id="format" class="question settings-question">
+				<div class="settings-question-number">1</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How long is your attention span?</div>
+					<div class="settings-question-options" data-group="format">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'poster'); hideElement('#format-book'); showElement('#format-poster'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message');" data-iteration="1">Short as hell</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'book'); hideElement('#format-poster'); showElement('#format-book'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message');" data-iteration="2">A bit longer than that</div>
 					</div>
-				</div>
-				<p class="question settings-question-break" data-format="book" data-active="0">
-					You’ll be designing a book.
-				</p>
-				<p class="question settings-question-break" data-format="poster" data-active="0">
-					You’ll be designing a poster.
-				</p>
-				<div id="units" class="question settings-question" data-active="0">
-					<div class="settings-question-number">2</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">Which system of measurement would you like to use?</div>
-						<div class="settings-question-options" data-group="units">
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('units', this); setUnits('in');">Imperial</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('units', this); setUnits('cm');">Metric</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- BOOK QUESTIONS -->
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">3</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">How wide would you like your book’s pages?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookWidth', -.25)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookWidth">8.5</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookWidth', .25)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">4</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">How tall would you like your book’s pages?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookHeight', -.25)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookHeight">11</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookHeight', .25)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">5</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What margins would you like your book’s pages to have?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookMargin', -.125)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookMargin">.5</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookMargin', .125)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">6</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What size would you like to set for your book’s typography?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookFont', -.5)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookFont">12</span>&nbsp;pt&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookFont', .5)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">7</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What leading (line height) would you like to set for your book’s typography?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookLeading', -.5)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookLeading">15</span>&nbsp;pt&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookLeading', .5)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">8</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What tracking (letter spacing) would you like to set for your book’s typography?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('bookTracking', -.5)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="bookTracking">0</span>&nbsp;pt&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('bookTracking', .5)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">9</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What style would you like to set for your book’s typography?</div>
-						<div class="settings-question-options" data-group="book-style">
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('book-style', this); setValue('bookStyle', 100);">Serif</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-style', this); setValue('bookStyle', 50);">Flare</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-style', this); setValue('bookStyle', 0);">Sans</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="book" data-active="0">
-					<div class="settings-question-number">10</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What weight would you like to set for your book’s typography?</div>
-						<div class="settings-question-options" data-group="book-weight">
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 100);">Thin</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 200);">Extra Light</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 300);">Light</div>
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('book-weight', this); setValue('bookWeight', 400);">Book</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 500);">Medium</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 600);">Semi Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 700);">Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 800);">Extra Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('book-weight', this); setValue('bookWeight', 900);">Heavy</div>
-						</div>
-					</div>
-				</div>
-				<div class="question generate" data-format="book" data-active="0">
-					<div class="generate-text">You’re almost there.</div>
-					<button id="generate-book" class="generate-button" onclick="generateBook()">Generate your book</button>
-				</div>
-
-				<!-- POSTER QUESTIONS -->
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">3</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">How wide would you like your poster to be?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('posterWidth', -.25)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="posterWidth">20</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('posterWidth', .25)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">4</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">How tall would you like your poster to be?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('posterHeight', -.25)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="posterHeight">30</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('posterHeight', .25)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">5</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What margins would you like your poster to have?</div>
-						<div class="settings-question-options">
-							<div class="settings-question-option-value" onclick="changeValue('posterMargin', -.125)">−</div>
-							<div class="settings-question-option-display">&nbsp;<span data-display="posterMargin">.5</span>&nbsp;<span data-units="in" data-active="1">in</span><span data-units="cm" data-active="0">cm</span>&nbsp;</div>
-							<div class="settings-question-option-value" onclick="changeValue('posterMargin', .125)">+</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">6</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What style would you like your poster’s typography to start with?</div>
-						<div class="settings-question-options" data-group="poster-style-start">
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('poster-style-start', this); setValue('posterStyleStart', 100);">Serif</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-style-start', this); setValue('posterStyleStart', 50);">Flare</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-style-start', this); setValue('posterStyleStart', 0);">Sans</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">7</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What style would you like your poster’s typography to end with?</div>
-						<div class="settings-question-options" data-group="poster-style-end">
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-style-end', this); setValue('posterStyleEnd', 100);">Serif</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-style-end', this); setValue('posterStyleEnd', 50);">Flare</div>
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('poster-style-end', this); setValue('posterStyleEnd', 0);">Sans</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">8</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What weight would you like your poster’s typography to start with?</div>
-						<div class="settings-question-options" data-group="poster-weight-start">
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 100);">Thin</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 200);">Extra Light</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 300);">Light</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 400);">Book</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 500);">Medium</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 600);">Semi Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 700);">Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 800);">Extra Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-start', this); setValue('posterWeightStart', 900);">Heavy</div>
-						</div>
-					</div>
-				</div>
-				<div class="question settings-question" data-format="poster" data-active="0">
-					<div class="settings-question-number">9</div>
-					<div class="settings-question-content">
-						<div class="settings-question-text">What weight would you like your poster’s typography to end with?</div>
-						<div class="settings-question-options" data-group="poster-weight-end">
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 100);">Thin</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 200);">Extra Light</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 300);">Light</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 400);">Book</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 500);">Medium</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 600);">Semi Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 700);">Bold</div>
-							<div class="settings-question-option" data-active="0" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 800);">Extra Bold</div>
-							<div class="settings-question-option" data-active="1" onclick="toggleOption('poster-weight-end', this); setValue('posterWeightEnd', 900);">Heavy</div>
-						</div>
-					</div>
-				</div>
-				<div class="question generate" data-format="poster" data-active="0">
-					<div class="generate-text">You’re almost there.</div>
-					<button id="generate-poster" class="generate-button" onclick="generatePoster()">Generate your poster</button>
 				</div>
 			</div>
+
+			<p class="question settings-question-break" id="format-message" data-active="0">
+				Your thesis compendium will be a <span id="format-poster" class="settings-question-value" data-active="0">poster</span><span id="format-book" class="settings-question-value" data-active="0">book</span>.
+			</p>
+
+			<!-- Units -->
+			<div id="units" class="question settings-question" data-active="0">
+				<div class="settings-question-number">2</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">Where do you live?</div>
+					<div class="settings-question-options" data-group="units">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('units', this); setValue('units', 'imperial'); hideElement('#units-metric'); showElement('#units-imperial'); showElement('#units-message'); showElement('#size'); scrollToElement('#units-message');" data-iteration="1">Myanmar, Liberia, or the U.S.</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('units', this); setValue('units', 'metric'); hideElement('#units-imperial'); showElement('#units-metric'); showElement('#units-message'); showElement('#size'); scrollToElement('#units-message');" data-iteration="2">Literally anywhere else</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="question settings-question-break" id="units-message" data-active="0">
+				You’ll be using <span id="units-imperial" class="settings-question-value" data-active="0">imperial</span><span id="units-metric" class="settings-question-value" data-active="0">metric</span> units.
+			</p>
+
+			<!-- Page size -->
+			<div id="size" class="question settings-question" data-active="0">
+				<div class="settings-question-number">3</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How many trees do you want to kill?</div>
+					<div class="settings-question-options" data-group="size">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'xxs'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="1">None, or close to it</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'xs'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="2">Not many</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'sm'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="3">Just a few</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'md'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="4">Whatever’s reasonable</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'lg'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="5">Just a couple more than that</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'xl'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="6">Tons</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('size', this); setValue('size', 'xxl'); showElement('#orientation'); scrollToElement('#orientation');" data-iteration="7">Forests</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Orientation -->
+			<div id="orientation" class="question settings-question" data-active="0">
+				<div class="settings-question-number">4</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">Are you more of a hamburger or hotdog kind of person?</div>
+					<div class="settings-question-options" data-group="orientation">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('orientation', this); setValue('orientation', 'portrait'); showElement('#margins'); scrollToElement('#margins');" data-iteration="1">Hamburgers</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('orientation', this); setValue('orientation', 'landscape'); showElement('#margins'); scrollToElement('#margins');" data-iteration="2">Hotdogs</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Margins -->
+			<div id="margins" class="question settings-question" data-active="0">
+				<div class="settings-question-number">5</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How much space do you like to take up?</div>
+					<div class="settings-question-options" data-group="margins">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '0%'); showElement('#page-message'); showElement('#style-start'); showElement('#orientation'); scrollToElement('#page-message');" data-iteration="1">All of it</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '2%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="2">I leave a little for others</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '4%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="3">Just enough to feel better than everyone else</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '8%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="4">No more or less than the average person</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '16%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="5">I’m happy to share</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '24%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="6">As little as possible</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('margins', this); setValue('margins', '32%'); showElement('#page-message'); showElement('#style-start'); scrollToElement('#page-message');" data-iteration="7">I’m not even here right now</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="question settings-question-break" id="page-message" data-active="0">
+				
+			</p>
+
+			<!-- Style start -->
+			<div id="style-start" class="question settings-question" data-active="0">
+				<div class="settings-question-number">6</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How do you dress for the day?</div>
+					<div class="settings-question-options" data-group="styleStart">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleStart', this); setValue('styleStart', 0); showElement('#style-end'); scrollToElement('#style-end');" data-iteration="1">Casually</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleStart', this); setValue('styleStart', 50); showElement('#style-end'); scrollToElement('#style-end');" data-iteration="2">Fashionably</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleStart', this); setValue('styleStart', 100); showElement('#style-end'); scrollToElement('#style-end');" data-iteration="3">Formally</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Style end -->
+			<div id="style-end" class="question settings-question" data-active="0">
+				<div class="settings-question-number">7</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How do you dress for the night?</div>
+					<div class="settings-question-options" data-group="styleEnd">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleEnd', this); setValue('styleEnd', 0); showElement('#weight-start'); scrollToElement('#weight-start');" data-iteration="1">Like no one’s watching</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleEnd', this); setValue('styleEnd', 50); showElement('#weight-start'); scrollToElement('#weight-start');" data-iteration="2">Like I’m the center of attention</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('styleEnd', this); setValue('styleEnd', 100); showElement('#weight-start'); scrollToElement('#weight-start');" data-iteration="3">Like I’m watching and judging</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Weight start -->
+			<div id="weight-start" class="question settings-question" data-active="0">
+				<div class="settings-question-number">8</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">What do you eat for breakfast?</div>
+					<div class="settings-question-options" data-group="weightStart">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 100); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="1">Air</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 200); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="2">Coffee</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 300); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="3">An apple</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 400); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="4">Some toast</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 500); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="5">Cereal</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 600); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="6">Cereal and milk</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 700); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="7">Fried eggs</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 800); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="8">An omelette with bacon</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightStart', this); setValue('weightStart', 900); showElement('#weight-end'); scrollToElement('#weight-end');" data-iteration="9">Chocolate chip pancakes</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Weight end -->
+			<div id="weight-end" class="question settings-question" data-active="0">
+				<div class="settings-question-number">9</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">What do you eat for dinner?</div>
+					<div class="settings-question-options" data-group="weightEnd">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 100); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="1">Vitamins</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 200); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="2">A glass of wine</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 300); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="3">Cheese and crackers</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 400); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="4">Caesar salad with lots of Parmesan</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 500); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="5">Black pepper tofu and bok choy</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 600); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="6">A couple servings of chili</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 700); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="7">Deep dish mac and cheese</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 800); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="8">(At least) half a pizza</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('weightEnd', this); setValue('weightEnd', 900); showElement('#variable-message'); showElement('#capitalization'); scrollToElement('#variable-message');" data-iteration="9">Molten chocolate cake</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="question settings-question-break" id="variable-message" data-active="0">
+				
+			</p>
+
+			<!-- Capitalization -->
+			<div id="capitalization" class="question settings-question" data-active="0">
+				<div class="settings-question-number">10</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How loud is your speaking voice?</div>
+					<div class="settings-question-options" data-group="capitalization">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('capitalization', this); setValue('capitalization', 'none'); showElement('#tracking'); scrollToElement('#tracking');" data-iteration="1">It’s nothing special</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('capitalization', this); setValue('capitalization', 'lowercase'); showElement('#tracking'); scrollToElement('#tracking');" data-iteration="2">It squeaks</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('capitalization', this); setValue('capitalization', 'uppercase'); showElement('#tracking'); scrollToElement('#tracking');" data-iteration="3">It bellows</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tracking -->
+			<div id="tracking" class="question settings-question" data-active="0">
+				<div class="settings-question-number">11</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How quickly do you talk?</div>
+					<div class="settings-question-options" data-group="tracking">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('tracking', this); setValue('tracking', '1em'); showElement('#leading'); scrollToElement('#leading');" data-iteration="1">Like a slug</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('tracking', this); setValue('tracking', '0.5em'); showElement('#leading'); scrollToElement('#leading');" data-iteration="2">Like a slug drinking coffee</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('tracking', this); setValue('tracking', '0em'); showElement('#leading'); scrollToElement('#leading');" data-iteration="3">Like your average bear</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('tracking', this); setValue('tracking', '-0.03em'); showElement('#leading'); scrollToElement('#leading');" data-iteration="4">Like your average bear drinking coffee</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('tracking', this); setValue('tracking', '-0.1em'); showElement('#leading'); scrollToElement('#leading');" data-iteration="5">Like your average bear losing count of how much coffee they drank</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Leading -->
+			<div id="leading" class="question settings-question" data-active="0">
+				<div class="settings-question-number">12</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How would you describe the pace of your conversations?</div>
+					<div class="settings-question-options" data-group="leading">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '0.6em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="1">I just never stop talking</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '1em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="2">I jump in whenever I hear a sliver of silence</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '1.4em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="3">My conversations have a comfortable, steady flow</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '1.8em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="4">I think talking is best when it’s relaxed</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '2.2em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="5">I hear my breath more than my voice</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('leading', this); setValue('leading', '4.4em'); showElement('#spacing-message'); showElement('#font-size'); scrollToElement('#spacing-message');" data-iteration="6">What?</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="question settings-question-break" id="spacing-message" data-active="0">
+				
+			</p>
+
+			<!-- Font size (book only) -->
+			<div id="font-size" class="question settings-question" data-active="0">
+				<div class="settings-question-number">13</div>
+				<div class="settings-question-content">
+					<div class="settings-question-text">How good is your vision?</div>
+					<div class="settings-question-options" data-group="font-size">
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '48pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="1">Full myopia</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '18pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="2">I’ll admit I have reading glasses</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '12pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="3">Fine in good lighting</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '10pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="4">20/20</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '8pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="5">Better than average</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('font-size', this); setValue('fontSize', '6pt'); showElement('#font-message'); showElement('#generate'); scrollToElement('#font-message');" data-iteration="6">Test me, I dare you</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="question settings-question-break" id="font-message" data-active="0">
+				
+			</p>
+			
+			<div id="generate" class="question generate" data-active="0">
+				<div class="generate-text">You’ve designed version <span id="iteration"></span> of 154,314,720 possible thesis compendiums.</div>
+				<button id="generate-button" class="generate-button" onclick="generateCompendium();">Print your compendium</button>
+				<button class="generate-button" onclick="generateRandom();">Print a different iteration</button>
+				<button class="generate-button" onclick="generateLegible();">Print something actually readable</button>
+			</div>
 		</div>
+	</div>
 
-		<!-- Printable content -->
-		<div class="printout">
-			<section>
-				<h2 class="printout-heading printable">Act I — Survey</h2>
-				<p class="printout-paragraph printable">1</p>
-				<p class="printout-paragraph printable">I have something I’d like for you to read, but I need your help to put it together. Would you be willing to lend me a hand?</p>
-				<p class="printout-paragraph printable">[Yes] [No]</p>
-				<p class="printout-paragraph printable">2</p>
-				<p class="printout-paragraph printable">I’ve been working on this thesis compendium. Someone told me to make it. I probably wouldn’t have made it otherwise.</p>
-				<p class="printout-paragraph printable">But, here we are. Or rather, here I am, and there you are.</p>
-				<p class="printout-paragraph printable">3</p>
-				<p class="printout-paragraph printable">It’d be nice if we got to know each other better. What’s your name?</p>
-				<p class="printout-paragraph printable">[Click here to enter your name]</p>
-				<p class="printout-paragraph printable">4</p>
-				<p class="printout-paragraph printable">Hi, [NAME]! My name is Gabriel.</p>
-				<p class="printout-paragraph printable">5</p>
-				<p class="printout-paragraph printable">My job is to design things. Practically speaking, that means that I get paid to create artifacts of visual, auditory, and experiential communication.</p>
-				<p class="printout-paragraph printable">Does my job make sense?</p>
-				<p class="printout-paragraph printable">[0] [1] [2] [3] [4] [5]</p>
-				<p class="printout-paragraph printable">6</p>
-				<p class="printout-paragraph printable">Before I studied design, I studied computer science and theater. Because of these experiences, I think of design as medium-agnostic.</p>
-				<p class="printout-paragraph printable">To me, design is about the performativity of objects, and the relationships between objects and people.</p>
-				<p class="printout-paragraph printable">[Can you define “performativity” for me?]</p>
-				<p class="printout-paragraph printable">7</p>
-				<p class="printout-paragraph printable">To be honest, I don’t have a strong grasp of what that means.</p>
-				<p class="printout-paragraph printable">[I think “performativity” is the ability for someone or something to initiate and partake in a transformative experience]</p>
-				<p class="printout-paragraph printable">8</p>
-				<p class="printout-paragraph printable">That was pretty good, but what is a “transformative” experience?</p>
-				<p class="printout-paragraph printable">[It’s when a shift in identity occurs, where one person or thing adopts a new role, even if momentarily] [I dunno]</p>
-				<p class="printout-paragraph printable">9</p>
-				<p class="printout-paragraph printable">This reminds me of a book: Erika Fischer-Lichte’s “The Transformative Power of Performance: A New Aesthetics.” It’s the book I come back to the most.</p>
-				<p class="printout-paragraph printable">10</p>
-				<p class="printout-paragraph printable">Erika writes about a feedback loop that occurs during a performance.</p>
-				<p class="printout-paragraph printable">A performer acts, and a listener-spectator subtly reacts. The performer then reacts to this reaction, momentarily becoming a listener-spectator themself. Erika calls this the “autopoietic feedback loop.”</p>
-				<p class="printout-paragraph printable">Does this feedback loop make sense?</p>
-				<p class="printout-paragraph printable">[😆] [😇] [😘] [🤑]</p>
-				<p class="printout-paragraph printable">11</p>
-				<p class="printout-paragraph printable">I grew up loving video games. It took me a long time to realize that the experience of playing a video game is a feedback loop similar to what Erika describes.</p>
-				<p class="printout-paragraph printable">The player is constantly switching roles with the game, acting and reacting in turn.</p>
-				<p class="printout-paragraph printable">[Just like how I’m reacting right now] [Except that I can only pick from the reactions you give me]</p>
-				<p class="printout-paragraph printable">12</p>
-				<p class="printout-paragraph printable">But there’s a funny illusion with video games.</p>
-				<p class="printout-paragraph printable">During performances, people have the ability to act and react because people are conscious.</p>
-				<p class="printout-paragraph printable">Does that mean video games can’t be performative?</p>
-				<p class="printout-paragraph printable">[Yes] [No] [That’s a rhetorical question]</p>
-				<p class="printout-paragraph printable">13</p>
-				<p class="printout-paragraph printable">It’s true that in digital media, our interactions have to be much more precise than in live performance.</p>
-				<p class="printout-paragraph printable">But at the same time, live performance has its own limited set of possibilities. Even if there are subtle changes with each performance, a play will still transpire in a relatively similar manner each time.</p>
-				<p class="printout-paragraph printable">[And my responses to these questions don’t matter] [Or rather, they don’t change anything] [Well, they don’t change anything for you]</p>
-				<p class="printout-paragraph printable">14</p>
-				<p class="printout-paragraph printable">Even though I’m carefully crafting this experience, I can see glimpses of you.</p>
-				<p class="printout-paragraph printable">For instance, I know you answered [_] to the last question. I also know that you’ve spent [_] seconds on this page so far. These details are the sorts of things I could respond to, if I wanted to.</p>
-				<p class="printout-paragraph printable">15</p>
-				<p class="printout-paragraph printable">And even though you have a limited set of ways to respond, your full array of options are vast.</p>
-				<p class="printout-paragraph printable">With just the few options presented so far, there are 1,728 total permutations of possible outcomes.</p>
-				<p class="printout-paragraph printable">[And with these two responses] [Those possibilities are now doubled to 3,456]</p>
-				<p class="printout-paragraph printable">16</p>
-				<p class="printout-paragraph printable">At the start, I said I needed your help to put this thesis compendium together.</p>
-				<p class="printout-paragraph printable">When I first started this project, I knew I wanted to include you in the process somehow. Without you, an audience of some sort, this thesis compendium doesn’t really exist.</p>
-				<p class="printout-paragraph printable">17</p>
-				<p class="printout-paragraph printable">I thought I would create a tool to let you design a version of the compendium. That’s why I called this “A Thesis Compendium” — one of many permutations.</p>
-				<p class="printout-paragraph printable">[Also, one of many among your drafts] [Also, one of many among the work of your peers] [Also, one of many among the work of prior cohorts]</p>
-				<p class="printout-paragraph printable">18</p>
-				<p class="printout-paragraph printable">But in crafting this collaborative design experience, I have realized that this is “a” thesis compendium also because it is one of many possible experiences of a thesis compendium.</p>
-				<p class="printout-paragraph printable">That singular experience is your experience, the one you are having right now. That experience is a performance, a transformative collaboration with an inanimate object.</p>
-				<p class="printout-paragraph printable">19</p>
-				<p class="printout-paragraph printable">That is my job — to craft an experience by creating the things that manifest it.</p>
-				<p class="printout-paragraph printable">[So, given that you’re there, and I’m here, what can we do together?] [What is the value of these experiences, economically and culturally?] [How can these ideas play into the work of a commercial studio?] [Is this kind of work art, or is it a service?]</p>
-				<p class="printout-paragraph printable">20</p>
-				<p class="printout-paragraph printable">Those are the questions that my practice deals with.</p>
-				<p class="printout-paragraph printable">I make playful, interactive experiences because I want us to collaborate in a performance. And I believe every part of that experience matters — I even designed the typeface used here.</p>
-				<p class="printout-paragraph printable">[I like it] [I hate it] [My opinion doesn’t matter]</p>
-				<p class="printout-paragraph printable">21</p>
-				<p class="printout-paragraph printable">[I’m glad you like my font.] [It’s okay that you don’t like my font.] [Your opinion does matter, at least to me.]</p>
-				<p class="printout-paragraph printable">But it’s not a simple like-or-hate relationship that affects this performance. It’s a deeper dialogue involving medium, voice, form, narrative, interface, and all the details that fall in between.</p>
-				<p class="printout-paragraph printable">22</p>
-				<p class="printout-paragraph printable">At this point, I have conveyed everything I wanted to tell you. All that remains is to show you my actual thesis compendium, if that’s what you want.</p>
-				<p class="printout-paragraph printable">[Yes] [No, but I know this option will take me to the compendium anyway, so I’m going to close this tab as a gesture of active participation]</p>
-			</section>
+	<div class="loading">
+		<p>Generating compendium, please wait. . .</p>
+	</div>
 
-			<section>
-				<h2 class="printout-heading printable">Act II — Principles</h2>
-				<p class="printout-paragraph printable">The first rule is to not take yourself too seriously. We’re off to a bad start, because rules are a bit too serious. But now that I’ve said that, about rules being too serious, I think we’re back on track. Although I need to confess that I had planned that whole switcheroo ahead of time, so this playfulness is verging on grave rigidity. Anyway, how are you?</p>
-				<p class="printout-paragraph printable">Recently — that is, recently for me, maybe not recently for you — I have been starting my days with what I call a “king” breakfast. The kernel of this breakfast originates from a local eatery, “The Shop,” whose breakfast is a deconstructed avocado toast of sorts. Eating this ten dollar platter of raw ingredients, I realized that food can be wonderful without much intervention, and also that I could make the same thing at home for no more than two dollars. So I did, and king breakfast emerged as a smorgasbord of avocado, tomatoes, cucumbers, soft-boiled eggs, bread, cheese, and fruit, sprinkled with salt, black pepper, red pepper flakes, and glistened with lime. Eating this breakfast, I felt like a king.</p>
-				<p class="printout-paragraph printable">But a king doesn’t make their own breakfast. As I fell into this routine, I felt this morning ritual set the day’s tone in multiple ways. Making and eating breakfast was an act of self-affirmation and modesty, (not so) subtly telling myself that I’m worth it, whatever “it” is, but also that I’m not so worth it that I can forget what came before that feeling. See, I’m again on the verge of being too serious. How are you doing?</p>
-				<p class="printout-paragraph printable">“King” is a loaded term. I use it because it comes naturally — royalty is royalty. Royalty is also gendered. Royalty is also elitist and classist. Royalty is exclusionary and xenophobic. And as much as I don’t want to be those things, when I make and eat my breakfast, I think “king.” There have been Jewish kings, although not in some time. And I think there have been kings uncomfortable with that term, in its gendered, ugly glory. And what even is a king any more? In the western world, “queen” is of most recent memory, equally fraught and violent, but selectively coupled with adoration and fame. The return of “king” has not received the same generosity from its public.</p>
-				<p class="printout-paragraph printable">I say “king” without an audience. That’s a lie — you’re here. And so is Maddie when I make breakfast. I don’t lay dominion on you, or Maddie. If anything, I am king of breakfast, or more specifically, my breakfast. And of myself, too.</p>
-				<p class="printout-paragraph printable">And even that — to have autonomy over my own body — is fraught. I have the reality of my identity, one which is not actively challenged in our Supreme Court. But besides which genitalia I was born with, or what gender I express, I am a Jew. I’m reminded of being a Jew when I call my mom and she reminds me of Passover coming up, or when I call one of my Babas and she speaks of a Holocaust remembrance party, funded by German reparations. I won’t unpack that now, but I will say there was humor in that phone call. Baba Rosa, not of the best memory, starts by saying “You know the Holocaust, right?” and follows with “Yesterday we had a celebration…”</p>
-				<p class="printout-paragraph printable">We don’t sign up for our histories. You might — I don’t know who you are. I can guess who you are. You probably like “design,” whatever that may be. And if you’ve read this far, you’re a special kind of person, aren’t you.</p>
-				<p class="printout-paragraph printable">How are you?</p>
-				<p class="printout-paragraph printable">I can’t know how you’ll respond, but I hope you’re doing well.</p>
-				<p class="printout-paragraph printable">And I don’t mean that like it’s the only answer you’re allowed to give. It’s certainly better to be doing well than not.</p>
-				<p class="printout-paragraph printable">Today, I’m doing fine. Well, today for me — maybe not today for you. My king breakfast was interrupted by a spilled coffee I gifted to (i.e. made for) Maddie. Maddie and I handle trauma very differently, which you could’ve seen if you had helped clean up the coffee. It’s sort of like crying over spilled milk, but that is trauma in a way.</p>
-				<p class="printout-paragraph printable">Today, I hope she’s doing well. Well, today for her — maybe not today for me.</p>
-				<p class="printout-paragraph printable">The first rule is to not take yourself too seriously. I don’t think that’s possible, even if I present that way. And I do try to present that way. But if this isn’t serious, then I would rather be doing something else. Something that isn’t work, to be sure.</p>
-				<p class="printout-paragraph printable">In a class exercise, we gave each other feedback on index cards. Someone, a peer, asked me what kind of work I would create if I weren’t stressed. The answer is that I wouldn’t be working if I wasn’t stressed. That’s called relaxing.</p>
-				<p class="printout-paragraph printable">When I relax, I play video games. I write music. I try to read, but reading is work. I floss — that was a hard conversion from work to relaxation. I clean the house — that wasn’t as hard of a conversion, surprising as that might seem. I eat savory foods — sweet foods upset my body. I use my phone. I don’t do anything.</p>
-				<p class="printout-paragraph printable">That doesn’t mean I don’t love this. I love to design. I love to write. But this is for you. For me, there’s king breakfast.</p>
-			</section>
+	<!-- Printable content -->
+	<div class="printout">
+		<h2 class="printout-bubble-outline printable"><span id="printout-iteration">1</span> // 154,314,720</h2>
+		<section>
+			<h2 class="printout-bubble-filled printable">Act I // Survey</h2>
+			<p class="printout-paragraph printable">1 // I have something I’d like for you to read, but I need your help to put it together. Would you be willing to lend me a hand?</p>
+			<p class="printout-paragraph printable">[Yes] [No]</p>
+			<p class="printout-paragraph printable">2 // I’ve been working on this thesis compendium. Someone told me to make it. I probably wouldn’t have made it otherwise.</p>
+			<p class="printout-paragraph printable">But, here we are. Or rather, here I am, and there you are.</p>
+			<p class="printout-paragraph printable">3 // It’d be nice if we got to know each other better. What’s your name?</p>
+			<p class="printout-paragraph printable">[Click here to enter your name]</p>
+			<p class="printout-paragraph printable">4 // Hi, [NAME]! My name is Gabriel.</p>
+			<p class="printout-paragraph printable">5 // My job is to design things. Practically speaking, that means that I get paid to create artifacts of visual, auditory, and experiential communication.</p>
+			<p class="printout-paragraph printable">Does my job make sense?</p>
+			<p class="printout-paragraph printable">[0] [1] [2] [3] [4] [5]</p>
+			<p class="printout-paragraph printable">6 // Before I studied design, I studied computer science and theater. Because of these experiences, I think of design as medium-agnostic.</p>
+			<p class="printout-paragraph printable">To me, design is about the performativity of objects, and the relationships between objects and people.</p>
+			<p class="printout-paragraph printable">[Can you define “performativity” for me?]</p>
+			<p class="printout-paragraph printable">7 // To be honest, I don’t have a strong grasp of what that means.</p>
+			<p class="printout-paragraph printable">[I think “performativity” is the ability for someone or something to initiate and partake in a transformative experience]</p>
+			<p class="printout-paragraph printable">8 // That was pretty good, but what is a “transformative” experience?</p>
+			<p class="printout-paragraph printable">[It’s when a shift in identity occurs, where one person or thing adopts a new role, even if momentarily] [I dunno]</p>
+			<p class="printout-paragraph printable">9 // This reminds me of a book: Erika Fischer-Lichte’s “The Transformative Power of Performance: A New Aesthetics.” It’s the book I come back to the most.</p>
+			<p class="printout-paragraph printable">10 // Erika writes about a feedback loop that occurs during a performance.</p>
+			<p class="printout-paragraph printable">A performer acts, and a listener-spectator subtly reacts. The performer then reacts to this reaction, momentarily becoming a listener-spectator themself. Erika calls this the “autopoietic feedback loop.”</p>
+			<p class="printout-paragraph printable">Does this feedback loop make sense?</p>
+			<p class="printout-paragraph printable">[😆] [😇] [😘] [🤑]</p>
+			<p class="printout-paragraph printable">11 // I grew up loving video games. It took me a long time to realize that the experience of playing a video game is a feedback loop similar to what Erika describes.</p>
+			<p class="printout-paragraph printable">The player is constantly switching roles with the game, acting and reacting in turn.</p>
+			<p class="printout-paragraph printable">[Just like how I’m reacting right now] [Except that I can only pick from the reactions you give me]</p>
+			<p class="printout-paragraph printable">12 // But there’s a funny illusion with video games.</p>
+			<p class="printout-paragraph printable">During performances, people have the ability to act and react because people are conscious.</p>
+			<p class="printout-paragraph printable">Does that mean video games can’t be performative?</p>
+			<p class="printout-paragraph printable">[Yes] [No] [That’s a rhetorical question]</p>
+			<p class="printout-paragraph printable">13 // It’s true that in digital media, our interactions have to be much more precise than in live performance.</p>
+			<p class="printout-paragraph printable">But at the same time, live performance has its own limited set of possibilities. Even if there are subtle changes with each performance, a play will still transpire in a relatively similar manner each time.</p>
+			<p class="printout-paragraph printable">[And my responses to these questions don’t matter] [Or rather, they don’t change anything] [Well, they don’t change anything for you]</p>
+			<p class="printout-paragraph printable">14 // Even though I’m carefully crafting this experience, I can see glimpses of you.</p>
+			<p class="printout-paragraph printable">For instance, I know you answered [_] to the last question. I also know that you’ve spent [_] seconds on this page so far. These details are the sorts of things I could respond to, if I wanted to.</p>
+			<p class="printout-paragraph printable">15 // And even though you have a limited set of ways to respond, your full array of options are vast.</p>
+			<p class="printout-paragraph printable">With just the few options presented so far, there are 1,728 total permutations of possible outcomes.</p>
+			<p class="printout-paragraph printable">[And with these two responses] [Those possibilities are now doubled to 3,456]</p>
+			<p class="printout-paragraph printable">16 // At the start, I said I needed your help to put this thesis compendium together.</p>
+			<p class="printout-paragraph printable">When I first started this project, I knew I wanted to include you in the process somehow. Without you, an audience of some sort, this thesis compendium doesn’t really exist.</p>
+			<p class="printout-paragraph printable">17 // I thought I would create a tool to let you design a version of the compendium. That’s why I called this “A Thesis Compendium” — one of many permutations.</p>
+			<p class="printout-paragraph printable">[Also, one of many among your drafts] [Also, one of many among the work of your peers] [Also, one of many among the work of prior cohorts]</p>
+			<p class="printout-paragraph printable">18 // But in crafting this collaborative design experience, I have realized that this is “a” thesis compendium also because it is one of many possible experiences of a thesis compendium.</p>
+			<p class="printout-paragraph printable">That singular experience is your experience, the one you are having right now. That experience is a performance, a transformative collaboration with an inanimate object.</p>
+			<p class="printout-paragraph printable">19 // That is my job — to craft an experience by creating the things that manifest it.</p>
+			<p class="printout-paragraph printable">[So, given that you’re there, and I’m here, what can we do together?] [What is the value of these experiences, economically and culturally?] [How can these ideas play into the work of a commercial studio?] [Is this kind of work art, or is it a service?]</p>
+			<p class="printout-paragraph printable">20 // Those are the questions that my practice deals with.</p>
+			<p class="printout-paragraph printable">I make playful, interactive experiences because I want us to collaborate in a performance. And I believe every part of that experience matters — I even designed the typeface used here.</p>
+			<p class="printout-paragraph printable">[I like it] [I hate it] [My opinion doesn’t matter]</p>
+			<p class="printout-paragraph printable">21 // [I’m glad you like my font.] [It’s okay that you don’t like my font.] [Your opinion does matter, at least to me.]</p>
+			<p class="printout-paragraph printable">But it’s not a simple like-or-hate relationship that affects this performance. It’s a deeper dialogue involving medium, voice, form, narrative, interface, and all the details that fall in between.</p>
+			<p class="printout-paragraph printable">22 // At this point, I have conveyed everything I wanted to tell you. All that remains is to show you my actual thesis compendium, if that’s what you want.</p>
+			<p class="printout-paragraph printable">[Yes] [No, but I know this option will take me to the compendium anyway, so I’m going to close this tab as a gesture of active participation]</p>
+		</section>
 
-			<section>
-				<h2 class="printout-heading printable">Act III — Claims</h2>
-				<p class="printout-paragraph printable">In the midst of its Fall 2022 season, the Chicago-based Victory Gardens Theater closed its doors to the public as the entirety of its staff either resigned or were fired, just as all collaborating artists rescinded their work and pledged not to submit more. I watched from afar, only tangentially touched by the events — I had a close friend who temped there as an usher, and I had briefly worked with the fired artistic director while we were both at a stint in another state. But as these events transpired, they felt personal. They rhymed with the malpractices of other companies in theater and beyond, companies that I worked for and didn’t, companies that would often face reckonings much like the turmoil at Victory Gardens and end up with similar bleak outcomes.</p>
-				<p class="printout-paragraph printable">What happened? If you visit the website for Victory Gardens, you’ll find a series of clarified misconceptions as authored by the board of directors. These clarifications try to confidently assure you of some facts: the artistic director was rightfully fired, the board didn’t act in an anti-union manner, and the board is definitely not racist. These are, of course, statements you’d only expect from a party who’s done everything right. Well, at least a party that needs to appear that way.</p>
-				<p class="printout-paragraph printable">The unfortunate outcome is that now, over a half year later, Victory Gardens has virtually ceased to exist. The board’s actions have led to the erasure of a major community organization whose mission was to bring premier theater to a community that was open to it. And despite the board’s insistence that its actions were in line with this mission, the theater as we know it is gone.</p>
-				<p class="printout-paragraph printable">Victory Gardens’ collapse reminds me of the word privilege. There’s a play by Young Jean Lee called “Straight White Men” that extensively discusses this word, “privilege.” In Lee’s play, a quartet of straight white men, all of one family, discuss the responsibility and pressure of privilege, interspersed by short narrative segments delivered by BIPOC, gender-nonconforming performers. The show’s main conflict involves Matt. Unlike his brothers, Matt has stopped seeking out ways to make use of his privilege. Instead, Matt has decided to be content with his life as it is. In their perspective, Matt has lost his ambition and is wasting his resources — he is a loser.</p>
-				<p class="printout-paragraph printable">Privilege is complicated. Lee confronts this directly in “Straight White Men,” challenging the notion of straight white male privilege. Lee’s research process and writing expose contradicting perspectives on this privilege. On one hand, straight white men should not take up space that could otherwise go to historically marginalized individuals. On the other hand, not taking advantage of the privileges afforded by his straight white male identity is what makes Matt a “loser.” Lee describes this paradox in an interview with Monica Tan from “The Guardian,” saying “So the audience is supposed to get trapped in this kind of bind, this disjunction between the desire for social justice and the desire for things to stay the same, for people not to be losers, to be aligned with power.” Since Matt chooses not to play into this system of privilege, his family deems him a loser, and so do we as an audience. But should Matt choose to exploit the benefits of his privilege for good, he would ironically uphold the discriminatory structure that gives him privilege in the first place. [source]</p>
-				<p class="printout-paragraph printable">When situations like Victory Gardens’ collapse arise, I think of what privilege means. Privilege can be based in reality — there is the privilege of opportunity, the privilege to be in the room, the privilege to have people think or not think certain things when looking at you. It is the privilege that, in many spaces, I have to reckon with. Besides my Jewish heritage, I am a fit for one of the most privileged identities at least in the United States. What do I need to do with that privilege, if anything?</p>
-				<p class="printout-paragraph printable">But, having worked at organizations like Victory Gardens, there is another privilege. This second “privilege” is less of a reality and more of a narrative. This is the “privilege” to be a part of a company that creates artifacts of culture — “art.” This is the “privilege” that permits employees of such institutions to be paid as little as possible, because they should be thankful to have this opportunity at all. This is the “privilege” that permits Victory Gardens’ board’s decision to close the theater entirely instead of reaching a compromise with its staff and community. This is the “privilege” that a party in power gets to determine as a means to say who gets paid what, who gets hired and fired when, and who gets the right to create culture.</p>
-				<p class="printout-paragraph printable">I think that in order to address the first kind of privilege — the one that Young Jean Lee explores in “Straight White Men” — we need to address this second “privilege” — the one that companies use to exploit labor from individuals of all identities.</p>
-				<p class="printout-paragraph printable">Now I feel an obligation. I have one aura of privilege that imbues me with a specialized and profitable skill set paired with a network of both academic and professional connections. I am also confronted with another aura of “privilege,” which concerns my career as someone who makes art. I feel an obligation to help create, or participate in, new models of working that collapse traditional corporate hierarchies in favor of horizontal structures. I see the failures of companies like Victory Gardens Theater as indications that industry shifts toward equitable practices are performative at best. Meanwhile, underlying power structures still uphold what bell hooks defines at the “white supremacist capitalist patriarchy.” That is to say, corporate efforts to elevate the voices of marginalized individuals are actually acts of tokenization. That is to say, Victory Gardens’ board is racist, despite its claims that it isn’t.</p>
-				<p class="printout-paragraph printable">I feel this obligation even though I understand my potential to take up too much space as a straight white man. I feel an obligation to use this privilege, one of identity and resources, to build paths for others to overcome the pervasive power structure that spreads an oppressive narrative of “privilege.” I feel an obligation to reckon with Young Jean Lee’s parable of the straight white man — to use my privilege not to save others, but to build new economic models that give me less privilege.</p>
-				<p class="printout-paragraph printable">One such new model of working is open source ideology. Open source ideology is in many ways a direct response to copyright, insisting that a work can be credited to an author but cannot be owned outright. Copyright is what enables the monetization of creative work — it defines a way in which a person, or an entity, can own, sell, and license cultural artifacts. But copyright is also a gatekeeper, preventing iterative work and halting all conversation around an idea. With open source ideology, designers can build on and branch off from each other’s work and ideas in a natural way, while still maintaining the ability to monetize their derivative products.</p>
-				<p class="printout-paragraph printable">Open source typefaces are one example of this ideology. Access to quality type design has historically been exclusive, first through the physical distribution of metal type, and now through pricey licensing models for digital typefaces or subscription plans for major corporations that control pitiful payouts to individual type foundries. While open source typefaces don’t intrinsically have monetary value, they serve as tools that enable designers to create advanced typographic systems. In her essay, “A font for the people,” Olivia King describes the process of iterating on the open source typeface Archivo for Derwent Valley in Tasmania. (Archivo was originally designed by Héctor Gatti and the Omnibus-Type Team.) King’s challenge was to produce a cultural product, in this case a font, for the organization managing the Valley. The population of this user base was such that a traditional font licensing model proved cost prohibitive. So, King chose to modify an open source typeface. The result is a sufficiently unique, comprehensive identity that supports accessibility. And furthermore, this type of work is sustainable — her team still gets paid. [source]</p>
-				<p class="printout-paragraph printable">Another alternative model of working is extra-institutional teaching and learning. This is the access to education, particularly high level education, beyond traditional paid models of instruction. One such example is online learning, which has emerged in response to both elementary and higher education’s insurmountable cost. Khan Academy is a notable early contender in this field, offering intimate lectures for STEM topics for a wide array of grade levels. In the design world, this sort of learning typically manifests as YouTube channels focusing on technical proficiency, or TikTok videos propagating quick skills and workflows. What remains unfulfilled is alternative education for the creative side of design — the kind that can empower designers to not just get jobs, but to create new types of opportunities for both themselves and future designers. This is the kind of work that Daniel Shiffman pursues with his YouTube channel and website, “The Coding Train.” Shiffman’s lectures and demos encourage both technical proficiency and creative exploration, often leading viewers to finish the challenge at hand themselves. And as the work of designers gets more complicated alongside emerging technologies, modes of teaching that promote inquiry and self-reliance like Shiffman’s become exponentially vital resources to help designers navigate the work ahead.</p>
-				<p class="printout-paragraph printable">A third model of working is the creation of new online communities in a post-social media world. These are websites that build on the failures of broad-appeal services like Facebook and Twitter. Instead, these new websites prioritize real community-building by catering to niche audiences and proposing novel ways for social interaction. Are.na is one such active network for the design community, where social interaction occurs through the sharing and organizing of resources. In a way, this platform becomes both a tool for a large community as well as a meeting place for using that tool. And in even more niche cases, organizations are experimenting with platforms that eschew all social media norms. Recurse Center, a self-directed and free coding and learning institution, has implemented multiple versions of its “Virtual RC” software, which provides a digital replica of the organization’s physical space so that members can congregate in a meaningful way even when remote. Both of these examples borrow ideas from larger social media networks, but apply them precisely for special interest groups to generate tighter communities.</p>
-				<p class="printout-paragraph printable">With these three models of working, new power hierarchies are emerging that attempt to level the playing field, particularly in the production and control of creative capital. This is the mission I center my own practice on, and will attempt to exercise once graduating.</p>
-			</section>
+		<section>
+			<h2 class="printout-bubble-filled printable">Act II // Principles</h2>
+			<p class="printout-paragraph printable">The first rule is to not take yourself too seriously. We’re off to a bad start, because rules are a bit too serious. But now that I’ve said that, about rules being too serious, I think we’re back on track. Although I need to confess that I had planned that whole switcheroo ahead of time, so this playfulness is verging on grave rigidity. Anyway, how are you?</p>
+			<p class="printout-paragraph printable">Recently — that is, recently for me, maybe not recently for you — I have been starting my days with what I call a “king” breakfast. The kernel of this breakfast originates from a local eatery, “The Shop,” whose breakfast is a deconstructed avocado toast of sorts. Eating this ten dollar platter of raw ingredients, I realized that food can be wonderful without much intervention, and also that I could make the same thing at home for no more than two dollars. So I did, and king breakfast emerged as a smorgasbord of avocado, tomatoes, cucumbers, soft-boiled eggs, bread, cheese, and fruit, sprinkled with salt, black pepper, red pepper flakes, and glistened with lime. Eating this breakfast, I felt like a king.</p>
+			<p class="printout-paragraph printable">But a king doesn’t make their own breakfast. As I fell into this routine, I felt this morning ritual set the day’s tone in multiple ways. Making and eating breakfast was an act of self-affirmation and modesty, (not so) subtly telling myself that I’m worth it, whatever “it” is, but also that I’m not so worth it that I can forget what came before that feeling. See, I’m again on the verge of being too serious. How are you doing?</p>
+			<p class="printout-paragraph printable">“King” is a loaded term. I use it because it comes naturally — royalty is royalty. Royalty is also gendered. Royalty is also elitist and classist. Royalty is exclusionary and xenophobic. And as much as I don’t want to be those things, when I make and eat my breakfast, I think “king.” There have been Jewish kings, although not in some time. And I think there have been kings uncomfortable with that term, in its gendered, ugly glory. And what even is a king any more? In the western world, “queen” is of most recent memory, equally fraught and violent, but selectively coupled with adoration and fame. The return of “king” has not received the same generosity from its public.</p>
+			<p class="printout-paragraph printable">I say “king” without an audience. That’s a lie — you’re here. And so is Maddie when I make breakfast. I don’t lay dominion on you, or Maddie. If anything, I am king of breakfast, or more specifically, my breakfast. And of myself, too.</p>
+			<p class="printout-paragraph printable">And even that — to have autonomy over my own body — is fraught. I have the reality of my identity, one which is not actively challenged in our Supreme Court. But besides which genitalia I was born with, or what gender I express, I am a Jew. I’m reminded of being a Jew when I call my mom and she reminds me of Passover coming up, or when I call one of my Babas and she speaks of a Holocaust remembrance party, funded by German reparations. I won’t unpack that now, but I will say there was humor in that phone call. Baba Rosa, not of the best memory, starts by saying “You know the Holocaust, right?” and follows with “Yesterday we had a celebration…”</p>
+			<p class="printout-paragraph printable">We don’t sign up for our histories. You might — I don’t know who you are. I can guess who you are. You probably like “design,” whatever that may be. And if you’ve read this far, you’re a special kind of person, aren’t you.</p>
+			<p class="printout-paragraph printable">How are you?</p>
+			<p class="printout-paragraph printable">I can’t know how you’ll respond, but I hope you’re doing well.</p>
+			<p class="printout-paragraph printable">And I don’t mean that like it’s the only answer you’re allowed to give. It’s certainly better to be doing well than not.</p>
+			<p class="printout-paragraph printable">Today, I’m doing fine. Well, today for me — maybe not today for you. My king breakfast was interrupted by a spilled coffee I gifted to (i.e. made for) Maddie. Maddie and I handle trauma very differently, which you could’ve seen if you had helped clean up the coffee. It’s sort of like crying over spilled milk, but that is trauma in a way.</p>
+			<p class="printout-paragraph printable">Today, I hope she’s doing well. Well, today for her — maybe not today for me.</p>
+			<p class="printout-paragraph printable">The first rule is to not take yourself too seriously. I don’t think that’s possible, even if I present that way. And I do try to present that way. But if this isn’t serious, then I would rather be doing something else. Something that isn’t work, to be sure.</p>
+			<p class="printout-paragraph printable">In a class exercise, we gave each other feedback on index cards. Someone, a peer, asked me what kind of work I would create if I weren’t stressed. The answer is that I wouldn’t be working if I wasn’t stressed. That’s called relaxing.</p>
+			<p class="printout-paragraph printable">When I relax, I play video games. I write music. I try to read, but reading is work. I floss — that was a hard conversion from work to relaxation. I clean the house — that wasn’t as hard of a conversion, surprising as that might seem. I eat savory foods — sweet foods upset my body. I use my phone. I don’t do anything.</p>
+			<p class="printout-paragraph printable">That doesn’t mean I don’t love this. I love to design. I love to write. But this is for you. For me, there’s king breakfast.</p>
+		</section>
 
-			<section>
-				<h2 class="printout-heading printable">Act IV — Practice</h2>
-				<p class="printout-paragraph printable">Confession: this fourth act is the final one.</p>
-				<p class="printout-paragraph printable">It isn’t the final one because it comes last, or because it concludes the story. It’s the final act because I’m writing it last. And in my head, in my hands, it feels like it comes last. And that feeling is going to influence how I write it, which will influence how you read it. That’s something I wanted to share.</p>
-				<p class="printout-paragraph printable">They — that is, the annoyingly rhetorical “they” — say that graphic design is about communication. Some schools are explicit about that, calling their program a “Visual Communication Design” program. I know that because I applied to the School of the Art Institute of Chicago’s Visual Communication Design program, which is an incredibly long thing to type out. It does make a lot of sense to define our work as visual communication — the concerns of typography and graphic form-making are usually in the context of directing a viewer’s attention in the effort of some larger cause. Maybe there’s something to sell, or an event to attend, or an interface to navigate. In any case, you — and I do mean you — have to find your way around, and that’s enough of a burden to assign someone the job of helping you out.</p>
-				<p class="printout-paragraph printable">At the same time, we — that is, the annoyingly rhetorical “we” — tend to get a little tangled up when we define graphic design. Is experience design graphic design? What about user experience design? How does sound, or industrial design, influence graphic design? Where does visual communication start and end, and is there such a thing as pure visual communication?</p>
-				<p class="printout-paragraph printable">So now I’ve designed for two years, or four semesters and two wintersessions, studying in a graphic design MFA program. What did I do?</p>
-				<p class="printout-paragraph printable">I discovered graphic design when I was working on the performance component of my first thesis. It was a sound design thesis that involved an extensive immersive set the audience could roam in and interact with. I remember running the show behind a curtain and thinking to myself, this isn’t a sound design thesis. Even though it was mounted in a theater and supported by the theater department, it wasn’t even really a theater thesis — it was more about communication than performance. It was about communicating to an audience about theater and performance and sound, under the guise of theater and performance and sound. It was about how design can shape our interactions, and consequently help us derive meaning from such experiences.</p>
-				<p class="printout-paragraph printable">But if that’s design, there’s still that word — “graphic.”</p>
-				<p class="printout-paragraph printable">“Graphic,” fundamentally speaking, means that my work is primarily visual. Even though I would also say my work is primarily interactive, my projects primarily accomplish this interactivity through visual interfaces. When I created “Archive Arcade” for our first graduate studio, I settled on smile detection as the project’s main mode of interaction. I needed a visual interface to tell the user when to smile, how to smile, and if their smile was actually a smile. This detail — the need to communicate how an interaction plays out — is what transforms my design practice into a graphic design practice.</p>
-				<p class="printout-paragraph printable">This philosophy, or methodology, or claim, or whatever, underscores my entire body of work. When I create a book, like I did when I typesetted Thomas Pynchon’s “The Crying of Lot 49” in conversation with Shakespeare’s “Hamlet,” my main objective is to create a performance. The book just happens to be an interface for this performance. In this case, I created a narrative that unfolds like a flipbook or film, wherein each spread is a typographic illustration depicting a battle between both texts for space in the frame. I remember adopting this performative approach early on in my education at RISD. In our first graduate form class, I designed a poster with lines so thin that the audience was forced to approach it to see it. The result is a sort of spectacle, between people and things.</p>
-				<p class="printout-paragraph printable">As I’ve gotten more adept at creating digital experiences, I’ve made more of them. Digital experiences lend themselves naturally to interaction because there isn’t as much tension between the audience and the object. Instead, there is more of an innate understanding that the object must be interacted with for the performance to unfold. As such, I’ve used my digital projects as research into all the various ways a project can compel its audience to act and interact. I think this is what distinguishes my work from user experience design — I don’t design for the “best” user experiences.</p>
-				<p class="printout-paragraph printable">This compendium is one such example. In its first act, it entices you into what is ostensibly a dialogue in the form of a survey. The conceit, of course, is that this survey is a linear piece of literature with the facade of a survey. But, this switcheroo enacts another, less obvious, type of performance between the audience and the object. That’s the kind of performance that an audience has to be lured into.</p>
-				<p class="printout-paragraph printable">On the other hand, I have built many experiences that more obviously toy with all the ways we play with digital mediums. “What Is Wikipedia?” repositions Wikipedia links as a spatial landscape as opposed to a vertically-scrolling document. “Pixel Weaver” exploits raster-based imagery as a generative visual opportunity. And the website for our 2023 Biennial is a digital recreation of the exhibition's floor plan, allowing users to navigate as if they were physically in the space.</p>
-				<p class="printout-paragraph printable">Then, I have a growing subset of projects that tap into my belief that teaching design is best done through design. “Variable Fonts Workshop” is a teaching and learning tool that showcases variable font design possibilities while offering creative contexts for designing new variable fonts. “Small Sites; Big Stories” follows a similar framework, giving teachers technical and creative examples for using code as a storytelling device. Meanwhile, students have free access to the same tool and can use it to learn how to code and use code simultaneously.</p>
-				<p class="printout-paragraph printable">By now, you may wonder where these projects are, since they aren’t documented here. When Ben presented his thesis this semester, he said — and I’m paraphrasing — that he believes work lives mainly in pictures. I think he’s right, because his projects are artworks, like books, that don’t have easy modes of replication. To experience his work, it needs to transform into something portable and distributable — pictures, still or moving.</p>
-				<p class="printout-paragraph printable">I cling to websites as a medium because their portability resists this fate. If the main function of documentation is to give work life outside of its original limited-scope context, then I have no desire to include it here. Not only are my web-based projects already distributable, their main source of meaning stems from interaction. Documentation obliterates interaction, and for the sake of this compendium I would not like to obliterate my work.</p>
-				<p class="printout-paragraph printable">There is one project I will show you — Limkin, a variable body typeface with serif and weight axes. And, in a bit of irony, you only get to see it because it’s invisible — I’m using it to typeset this compendium.</p>
-			</section>
+		<section>
+			<h2 class="printout-bubble-filled printable">Act III // Claims</h2>
+			<p class="printout-paragraph printable">In the midst of its Fall 2022 season, the Chicago-based Victory Gardens Theater closed its doors to the public as the entirety of its staff either resigned or were fired, just as all collaborating artists rescinded their work and pledged not to submit more. I watched from afar, only tangentially touched by the events — I had a close friend who temped there as an usher, and I had briefly worked with the fired artistic director while we were both at a stint in another state. But as these events transpired, they felt personal. They rhymed with the malpractices of other companies in theater and beyond, companies that I worked for and didn’t, companies that would often face reckonings much like the turmoil at Victory Gardens and end up with similar bleak outcomes.</p>
+			<p class="printout-paragraph printable">What happened? If you visit the website for Victory Gardens, you’ll find a series of clarified misconceptions as authored by the board of directors. These clarifications try to confidently assure you of some facts: the artistic director was rightfully fired, the board didn’t act in an anti-union manner, and the board is definitely not racist. These are, of course, statements you’d only expect from a party who’s done everything right. Well, at least a party that needs to appear that way.</p>
+			<p class="printout-paragraph printable">The unfortunate outcome is that now, over a half year later, Victory Gardens has virtually ceased to exist. The board’s actions have led to the erasure of a major community organization whose mission was to bring premier theater to a community that was open to it. And despite the board’s insistence that its actions were in line with this mission, the theater as we know it is gone.</p>
+			<p class="printout-paragraph printable">Victory Gardens’ collapse reminds me of the word privilege. There’s a play by Young Jean Lee called “Straight White Men” that extensively discusses this word, “privilege.” In Lee’s play, a quartet of straight white men, all of one family, discuss the responsibility and pressure of privilege, interspersed by short narrative segments delivered by BIPOC, gender-nonconforming performers. The show’s main conflict involves Matt. Unlike his brothers, Matt has stopped seeking out ways to make use of his privilege. Instead, Matt has decided to be content with his life as it is. In their perspective, Matt has lost his ambition and is wasting his resources — he is a loser.</p>
+			<p class="printout-paragraph printable">Privilege is complicated. Lee confronts this directly in “Straight White Men,” challenging the notion of straight white male privilege. Lee’s research process and writing expose contradicting perspectives on this privilege. On one hand, straight white men should not take up space that could otherwise go to historically marginalized individuals. On the other hand, not taking advantage of the privileges afforded by his straight white male identity is what makes Matt a “loser.” Lee describes this paradox in an interview with Monica Tan from “The Guardian,” saying “So the audience is supposed to get trapped in this kind of bind, this disjunction between the desire for social justice and the desire for things to stay the same, for people not to be losers, to be aligned with power.” Since Matt chooses not to play into this system of privilege, his family deems him a loser, and so do we as an audience. But should Matt choose to exploit the benefits of his privilege for good, he would ironically uphold the discriminatory structure that gives him privilege in the first place. [source]</p>
+			<p class="printout-paragraph printable">When situations like Victory Gardens’ collapse arise, I think of what privilege means. Privilege can be based in reality — there is the privilege of opportunity, the privilege to be in the room, the privilege to have people think or not think certain things when looking at you. It is the privilege that, in many spaces, I have to reckon with. Besides my Jewish heritage, I am a fit for one of the most privileged identities at least in the United States. What do I need to do with that privilege, if anything?</p>
+			<p class="printout-paragraph printable">But, having worked at organizations like Victory Gardens, there is another privilege. This second “privilege” is less of a reality and more of a narrative. This is the “privilege” to be a part of a company that creates artifacts of culture — “art.” This is the “privilege” that permits employees of such institutions to be paid as little as possible, because they should be thankful to have this opportunity at all. This is the “privilege” that permits Victory Gardens’ board’s decision to close the theater entirely instead of reaching a compromise with its staff and community. This is the “privilege” that a party in power gets to determine as a means to say who gets paid what, who gets hired and fired when, and who gets the right to create culture.</p>
+			<p class="printout-paragraph printable">I think that in order to address the first kind of privilege — the one that Young Jean Lee explores in “Straight White Men” — we need to address this second “privilege” — the one that companies use to exploit labor from individuals of all identities.</p>
+			<p class="printout-paragraph printable">Now I feel an obligation. I have one aura of privilege that imbues me with a specialized and profitable skill set paired with a network of both academic and professional connections. I am also confronted with another aura of “privilege,” which concerns my career as someone who makes art. I feel an obligation to help create, or participate in, new models of working that collapse traditional corporate hierarchies in favor of horizontal structures. I see the failures of companies like Victory Gardens Theater as indications that industry shifts toward equitable practices are performative at best. Meanwhile, underlying power structures still uphold what bell hooks defines at the “white supremacist capitalist patriarchy.” That is to say, corporate efforts to elevate the voices of marginalized individuals are actually acts of tokenization. That is to say, Victory Gardens’ board is racist, despite its claims that it isn’t.</p>
+			<p class="printout-paragraph printable">I feel this obligation even though I understand my potential to take up too much space as a straight white man. I feel an obligation to use this privilege, one of identity and resources, to build paths for others to overcome the pervasive power structure that spreads an oppressive narrative of “privilege.” I feel an obligation to reckon with Young Jean Lee’s parable of the straight white man — to use my privilege not to save others, but to build new economic models that give me less privilege.</p>
+			<p class="printout-paragraph printable">One such new model of working is open source ideology. Open source ideology is in many ways a direct response to copyright, insisting that a work can be credited to an author but cannot be owned outright. Copyright is what enables the monetization of creative work — it defines a way in which a person, or an entity, can own, sell, and license cultural artifacts. But copyright is also a gatekeeper, preventing iterative work and halting all conversation around an idea. With open source ideology, designers can build on and branch off from each other’s work and ideas in a natural way, while still maintaining the ability to monetize their derivative products.</p>
+			<p class="printout-paragraph printable">Open source typefaces are one example of this ideology. Access to quality type design has historically been exclusive, first through the physical distribution of metal type, and now through pricey licensing models for digital typefaces or subscription plans for major corporations that control pitiful payouts to individual type foundries. While open source typefaces don’t intrinsically have monetary value, they serve as tools that enable designers to create advanced typographic systems. In her essay, “A font for the people,” Olivia King describes the process of iterating on the open source typeface Archivo for Derwent Valley in Tasmania. (Archivo was originally designed by Héctor Gatti and the Omnibus-Type Team.) King’s challenge was to produce a cultural product, in this case a font, for the organization managing the Valley. The population of this user base was such that a traditional font licensing model proved cost prohibitive. So, King chose to modify an open source typeface. The result is a sufficiently unique, comprehensive identity that supports accessibility. And furthermore, this type of work is sustainable — her team still gets paid. [source]</p>
+			<p class="printout-paragraph printable">Another alternative model of working is extra-institutional teaching and learning. This is the access to education, particularly high level education, beyond traditional paid models of instruction. One such example is online learning, which has emerged in response to both elementary and higher education’s insurmountable cost. Khan Academy is a notable early contender in this field, offering intimate lectures for STEM topics for a wide array of grade levels. In the design world, this sort of learning typically manifests as YouTube channels focusing on technical proficiency, or TikTok videos propagating quick skills and workflows. What remains unfulfilled is alternative education for the creative side of design — the kind that can empower designers to not just get jobs, but to create new types of opportunities for both themselves and future designers. This is the kind of work that Daniel Shiffman pursues with his YouTube channel and website, “The Coding Train.” Shiffman’s lectures and demos encourage both technical proficiency and creative exploration, often leading viewers to finish the challenge at hand themselves. And as the work of designers gets more complicated alongside emerging technologies, modes of teaching that promote inquiry and self-reliance like Shiffman’s become exponentially vital resources to help designers navigate the work ahead.</p>
+			<p class="printout-paragraph printable">A third model of working is the creation of new online communities in a post-social media world. These are websites that build on the failures of broad-appeal services like Facebook and Twitter. Instead, these new websites prioritize real community-building by catering to niche audiences and proposing novel ways for social interaction. Are.na is one such active network for the design community, where social interaction occurs through the sharing and organizing of resources. In a way, this platform becomes both a tool for a large community as well as a meeting place for using that tool. And in even more niche cases, organizations are experimenting with platforms that eschew all social media norms. Recurse Center, a self-directed and free coding and learning institution, has implemented multiple versions of its “Virtual RC” software, which provides a digital replica of the organization’s physical space so that members can congregate in a meaningful way even when remote. Both of these examples borrow ideas from larger social media networks, but apply them precisely for special interest groups to generate tighter communities.</p>
+			<p class="printout-paragraph printable">With these three models of working, new power hierarchies are emerging that attempt to level the playing field, particularly in the production and control of creative capital. This is the mission I center my own practice on, and will attempt to exercise once graduating.</p>
+		</section>
 
-			<section>
-				<h2 class="printout-heading printable">Act V — References</h2>
-				<p class="printout-paragraph printable">What is the purpose of a bibliography?</p>
-				<p class="printout-paragraph printable">I remember my thesis carrel at Wesleyan. It was a small room I had all to myself. It had a locked door, and I had the key. It had a desk, a garbage can, and a window. It was tiny. It was silent. It was where I left my stack of around twenty books, books that would comprise the bibliography for my first thesis.</p>
-				<p class="printout-paragraph printable">Even though this carrel was in the Olin Library, I still felt compelled to own my books. To write a thesis was to be an academic, and to be an academic was to be significant. Significant people, I supposed, kept track of their influences, and so their bibliographies became a kind of material possession. While I didn’t own all of the books on my desk in my carrel, I did own around half of them. Now, those books sit politely on the shelf beside me. I’ve sorted them by color so that they look pretty. I’ve read maybe three or four. I remember maybe one or two.</p>
-				<p class="printout-paragraph printable">What is the purpose of a bibliography?</p>
-				<p class="printout-paragraph printable">There are twenty-six resources in the bibliography for my first thesis. Seven are articles I specifically included to prove a point I was going to make regardless. Two are textbooks I included to look smarter. At least three are books I never read a single portion of. Many others are books I read but absorbed no real information from. And one is something of my own, my theatrical performance from the prior semester that partially fulfilled the thesis requirements. </p>
-				<p class="printout-paragraph printable">What do you do with a bibliography? I suppose you cite it. You encounter it through footnotes or endnotes. You reference it to validate the author’s claims. You peruse it for further research. You count the number of references to see how smart this person is. You count the number of references to see how hard this person works. You look at the sources to see if the paper is worth its weight in salt.</p>
-				<p class="printout-paragraph printable">What is a paper without a bibliography?</p>
-				<p class="printout-paragraph printable">Well, what is this one?</p>
-				<p class="printout-paragraph printable">I remember growing anxious in my carrel. I remember attempting to stick to a sticky-note regimen for note-taking, and I remember taking an hour to make it through ten pages of one book. Then there were all the times I did the math in my head, the times in which I realized that this stack of books was a performance I could not accomplish. What an unfortunate discovery, to learn that my difficulty reading theory was actually a regressive spiral that made reading harder and harder.</p>
-				<p class="printout-paragraph printable">I remember sitting in my makeshift tech booth before my thesis performance and puzzling over whether my sound design thesis should contain any sound. In my head, I felt the show’s outcome would be the same.</p>
-				<p class="printout-paragraph printable">What is the point of a thesis?</p>
-				<p class="printout-paragraph printable">And now, as I’ve finished this section, and this compendium, and as I’ve decided to break the rules and not include a bibliography, or to have this be the bibliography, or to at least confuse whomever has to make that distinction, I feel a weird pressure. I feel a pressure to include a bibliography, not because it supports this work but because it is a requirement of this work. And then again, maybe this compendium doesn’t support my thesis, but is a requirement for a thesis. And then again, maybe that thesis won’t support my education, but is a requirement of my education.</p>
-				<p class="printout-paragraph printable">I suppose someone has to make these decisions, and that person likely has our best intentions in mind.</p>
-				<p class="printout-paragraph printable">At the same time, I suppose that this bibliography, compendium, and thesis serve that person. I wonder if they still serve me, and I wonder if they serve you.</p>
-				<p class="printout-paragraph printable">And now, I wonder if you’re here with me. Or rather, here for me, there for you.</p>
-				<p class="printout-paragraph printable">If you want to know why I design how I design, you can ask me. I’m just a guy.</p>
-			</section>
+		<section>
+			<h2 class="printout-bubble-filled printable">Act IV // Practice</h2>
+			<p class="printout-paragraph printable">Confession: this fourth act is the final one.</p>
+			<p class="printout-paragraph printable">It isn’t the final one because it comes last, or because it concludes the story. It’s the final act because I’m writing it last. And in my head, in my hands, it feels like it comes last. And that feeling is going to influence how I write it, which will influence how you read it. That’s something I wanted to share.</p>
+			<p class="printout-paragraph printable">They — that is, the annoyingly rhetorical “they” — say that graphic design is about communication. Some schools are explicit about that, calling their program a “Visual Communication Design” program. I know that because I applied to the School of the Art Institute of Chicago’s Visual Communication Design program, which is an incredibly long thing to type out. It does make a lot of sense to define our work as visual communication — the concerns of typography and graphic form-making are usually in the context of directing a viewer’s attention in the effort of some larger cause. Maybe there’s something to sell, or an event to attend, or an interface to navigate. In any case, you — and I do mean you — have to find your way around, and that’s enough of a burden to assign someone the job of helping you out.</p>
+			<p class="printout-paragraph printable">At the same time, we — that is, the annoyingly rhetorical “we” — tend to get a little tangled up when we define graphic design. Is experience design graphic design? What about user experience design? How does sound, or industrial design, influence graphic design? Where does visual communication start and end, and is there such a thing as pure visual communication?</p>
+			<p class="printout-paragraph printable">So now I’ve designed for two years, or four semesters and two wintersessions, studying in a graphic design MFA program. What did I do?</p>
+			<p class="printout-paragraph printable">I discovered graphic design when I was working on the performance component of my first thesis. It was a sound design thesis that involved an extensive immersive set the audience could roam in and interact with. I remember running the show behind a curtain and thinking to myself, this isn’t a sound design thesis. Even though it was mounted in a theater and supported by the theater department, it wasn’t even really a theater thesis — it was more about communication than performance. It was about communicating to an audience about theater and performance and sound, under the guise of theater and performance and sound. It was about how design can shape our interactions, and consequently help us derive meaning from such experiences.</p>
+			<p class="printout-paragraph printable">But if that’s design, there’s still that word — “graphic.”</p>
+			<p class="printout-paragraph printable">“Graphic,” fundamentally speaking, means that my work is primarily visual. Even though I would also say my work is primarily interactive, my projects primarily accomplish this interactivity through visual interfaces. When I created “Archive Arcade” for our first graduate studio, I settled on smile detection as the project’s main mode of interaction. I needed a visual interface to tell the user when to smile, how to smile, and if their smile was actually a smile. This detail — the need to communicate how an interaction plays out — is what transforms my design practice into a graphic design practice.</p>
+			<p class="printout-paragraph printable">This philosophy, or methodology, or claim, or whatever, underscores my entire body of work. When I create a book, like I did when I typesetted Thomas Pynchon’s “The Crying of Lot 49” in conversation with Shakespeare’s “Hamlet,” my main objective is to create a performance. The book just happens to be an interface for this performance. In this case, I created a narrative that unfolds like a flipbook or film, wherein each spread is a typographic illustration depicting a battle between both texts for space in the frame. I remember adopting this performative approach early on in my education at RISD. In our first graduate form class, I designed a poster with lines so thin that the audience was forced to approach it to see it. The result is a sort of spectacle, between people and things.</p>
+			<p class="printout-paragraph printable">As I’ve gotten more adept at creating digital experiences, I’ve made more of them. Digital experiences lend themselves naturally to interaction because there isn’t as much tension between the audience and the object. Instead, there is more of an innate understanding that the object must be interacted with for the performance to unfold. As such, I’ve used my digital projects as research into all the various ways a project can compel its audience to act and interact. I think this is what distinguishes my work from user experience design — I don’t design for the “best” user experiences.</p>
+			<p class="printout-paragraph printable">This compendium is one such example. In its first act, it entices you into what is ostensibly a dialogue in the form of a survey. The conceit, of course, is that this survey is a linear piece of literature with the facade of a survey. But, this switcheroo enacts another, less obvious, type of performance between the audience and the object. That’s the kind of performance that an audience has to be lured into.</p>
+			<p class="printout-paragraph printable">On the other hand, I have built many experiences that more obviously toy with all the ways we play with digital mediums. “What Is Wikipedia?” repositions Wikipedia links as a spatial landscape as opposed to a vertically-scrolling document. “Pixel Weaver” exploits raster-based imagery as a generative visual opportunity. And the website for our 2023 Biennial is a digital recreation of the exhibition's floor plan, allowing users to navigate as if they were physically in the space.</p>
+			<p class="printout-paragraph printable">Then, I have a growing subset of projects that tap into my belief that teaching design is best done through design. “Variable Fonts Workshop” is a teaching and learning tool that showcases variable font design possibilities while offering creative contexts for designing new variable fonts. “Small Sites; Big Stories” follows a similar framework, giving teachers technical and creative examples for using code as a storytelling device. Meanwhile, students have free access to the same tool and can use it to learn how to code and use code simultaneously.</p>
+			<p class="printout-paragraph printable">By now, you may wonder where these projects are, since they aren’t documented here. When Ben presented his thesis this semester, he said — and I’m paraphrasing — that he believes work lives mainly in pictures. I think he’s right, because his projects are artworks, like books, that don’t have easy modes of replication. To experience his work, it needs to transform into something portable and distributable — pictures, still or moving.</p>
+			<p class="printout-paragraph printable">I cling to websites as a medium because their portability resists this fate. If the main function of documentation is to give work life outside of its original limited-scope context, then I have no desire to include it here. Not only are my web-based projects already distributable, their main source of meaning stems from interaction. Documentation obliterates interaction, and for the sake of this compendium I would not like to obliterate my work.</p>
+			<p class="printout-paragraph printable">There is one project I will show you — Limkin, a variable body typeface with serif and weight axes. And, in a bit of irony, you only get to see it because it’s invisible — I’m using it to typeset this compendium.</p>
+		</section>
 
-			<div id="printout-end"></div>
-		</div>
+		<section>
+			<h2 class="printout-bubble-filled printable">Act V // References</h2>
+			<p class="printout-paragraph printable">What is the purpose of a bibliography?</p>
+			<p class="printout-paragraph printable">I remember my thesis carrel at Wesleyan. It was a small room I had all to myself. It had a locked door, and I had the key. It had a desk, a garbage can, and a window. It was tiny. It was silent. It was where I left my stack of around twenty books, books that would comprise the bibliography for my first thesis.</p>
+			<p class="printout-paragraph printable">Even though this carrel was in the Olin Library, I still felt compelled to own my books. To write a thesis was to be an academic, and to be an academic was to be significant. Significant people, I supposed, kept track of their influences, and so their bibliographies became a kind of material possession. While I didn’t own all of the books on my desk in my carrel, I did own around half of them. Now, those books sit politely on the shelf beside me. I’ve sorted them by color so that they look pretty. I’ve read maybe three or four. I remember maybe one or two.</p>
+			<p class="printout-paragraph printable">What is the purpose of a bibliography?</p>
+			<p class="printout-paragraph printable">There are twenty-six resources in the bibliography for my first thesis. Seven are articles I specifically included to prove a point I was going to make regardless. Two are textbooks I included to look smarter. At least three are books I never read a single portion of. Many others are books I read but absorbed no real information from. And one is something of my own, my theatrical performance from the prior semester that partially fulfilled the thesis requirements. </p>
+			<p class="printout-paragraph printable">What do you do with a bibliography? I suppose you cite it. You encounter it through footnotes or endnotes. You reference it to validate the author’s claims. You peruse it for further research. You count the number of references to see how smart this person is. You count the number of references to see how hard this person works. You look at the sources to see if the paper is worth its weight in salt.</p>
+			<p class="printout-paragraph printable">What is a paper without a bibliography?</p>
+			<p class="printout-paragraph printable">Well, what is this one?</p>
+			<p class="printout-paragraph printable">I remember growing anxious in my carrel. I remember attempting to stick to a sticky-note regimen for note-taking, and I remember taking an hour to make it through ten pages of one book. Then there were all the times I did the math in my head, the times in which I realized that this stack of books was a performance I could not accomplish. What an unfortunate discovery, to learn that my difficulty reading theory was actually a regressive spiral that made reading harder and harder.</p>
+			<p class="printout-paragraph printable">I remember sitting in my makeshift tech booth before my thesis performance and puzzling over whether my sound design thesis should contain any sound. In my head, I felt the show’s outcome would be the same.</p>
+			<p class="printout-paragraph printable">What is the point of a thesis?</p>
+			<p class="printout-paragraph printable">And now, as I’ve finished this section, and this compendium, and as I’ve decided to break the rules and not include a bibliography, or to have this be the bibliography, or to at least confuse whomever has to make that distinction, I feel a weird pressure. I feel a pressure to include a bibliography, not because it supports this work but because it is a requirement of this work. And then again, maybe this compendium doesn’t support my thesis, but is a requirement for a thesis. And then again, maybe that thesis won’t support my education, but is a requirement of my education.</p>
+			<p class="printout-paragraph printable">I suppose someone has to make these decisions, and that person likely has our best intentions in mind.</p>
+			<p class="printout-paragraph printable">At the same time, I suppose that this bibliography, compendium, and thesis serve that person. I wonder if they still serve me, and I wonder if they serve you.</p>
+			<p class="printout-paragraph printable">And now, I wonder if you’re here with me. Or rather, here for me, there for you.</p>
+			<p class="printout-paragraph printable">If you want to know why I design how I design, you can ask me. I’m just a guy.</p>
+		</section>
+
+		<div id="printout-end"></div>
 	</div>
 
 	<script src="script.js"></script>
