@@ -6,8 +6,9 @@
 	--margin-top: 1.4em;
 }
 @font-face {
-	font-family: Limkin;
+	font-family: "Limkin";
 	src: url("../assets/limkin.ttf");
+	font-weight: 100 900;
 }
 * {
 	box-sizing: border-box;
@@ -39,8 +40,9 @@
 	animation: settings-in 1s .2s forwards;
 }
 .settings * {
-	font-family: Limkin;
+	font-family: "Limkin";
 	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-weight: 500;
 	font-size: 3vw;
 	line-height: 1.3em;
 }
@@ -86,6 +88,7 @@
 	align-items: center;
 	justify-content: center;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 	font-size: .5em;
 	line-height: 1em;
 	padding-top: .2em;
@@ -115,6 +118,7 @@
 	padding: .55em 1.2em .4em 1.2em;
 	border-radius: 2em;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 	cursor: pointer;
 	color: black;
 	text-align: center;
@@ -152,12 +156,14 @@
 	font-size: 2vw;
 	line-height: 1.4em;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 }
 .settings-question-option-display * {
 	margin: 0;
 	font-size: 2vw;
 	line-height: 1.4em;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 }
 .settings-question-option-value {
 	align-self: center;
@@ -177,6 +183,7 @@
 	text-align: center;
 	cursor: pointer;
 	font-variation-settings: "wght" 600, "SRFF" 50;
+	font-weight: 600;
 }
 .settings-question-option-value:hover {
 	background-color: black;
@@ -208,6 +215,7 @@
 	padding: .55em 1.2em .4em 1.2em;
 	border-radius: 2em;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 	cursor: pointer;
 	color: black;
 	text-align: center;
@@ -219,6 +227,19 @@
 }
 .generate-button:active {
 	transform: scale(.9);
+}
+.skip {
+	position: fixed;
+	bottom: 1vw;
+	right: 1vw;
+	font-family: "Limkin";
+	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-weight: 500;
+	font-size: 1.4vw;
+	line-height: 1.3em;
+}
+.skip[data-active="0"] {
+	display: none;
 }
 .loading {
 	display: flex;
@@ -236,17 +257,19 @@
 	color: white;
 	font-size: 24px;
 	opacity: 0;
-	font-family: Limkin;
+	font-family: "Limkin";
 	z-index: 99999;
 	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-weight: 500;
 }
 
 /* Printable content */
 .printout {
-	font-family: Limkin;
+	font-family: "Limkin";
 	font-size: var(--font-size);
 	text-transform: var(--capitalization);
 	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-weight: 500;
 	text-align: justify;
 	line-height: 2em;
 	display: none;
@@ -304,6 +327,9 @@
 }
 @media print {
 	.settings {
+		display: none;
+	}
+	.skip {
 		display: none;
 	}
 }

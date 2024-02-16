@@ -1,6 +1,7 @@
 @font-face {
-	font-family: Limkin;
+	font-family: "Limkin";
 	src: url("assets/limkin.ttf");
+	font-weight: 100 900;
 }
 * {
 	box-sizing: border-box;
@@ -23,8 +24,9 @@ body {
 	overflow: hidden;
 }
 .questions * {
-	font-family: Limkin;
+	font-family: "Limkin";
 	font-variation-settings: "wght" 500, "SRFF" 50;
+	font-weight: 500;
 	font-size: 2rem;
 	line-height: 1.2em;
 }
@@ -87,6 +89,7 @@ body {
 	padding: .6em 1.2em .4em 1.2em;
 	border-radius: 2rem;
 	font-variation-settings: "wght" 550, "SRFF" 50;
+	font-weight: 550;
 	cursor: pointer;
 	text-align: center;
 	color: black;
@@ -103,8 +106,9 @@ body {
 
 /* Progress bar */
 .progress {
-	font-family: Limkin;
+	font-family: "Limkin";
 	font-variation-settings: "wght" 700, "SRFF" 50;
+	font-weight: 700;
 	position: absolute;
 	bottom: 20px;
 	left: 0;

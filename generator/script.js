@@ -17,6 +17,18 @@ function showElement(id) {
 	let target = document.querySelector(id);
 	target.dataset.active = 1;
 }
+function showAllElements() {
+	for (let target of document.querySelectorAll('.settings-question')) {
+		target.dataset.active = 1;
+	}
+	for (let target of document.querySelectorAll('.settings-question-break')) {
+		target.dataset.active = 1;
+	}
+	document.querySelector('.generate').dataset.active = 1;
+	setTimeout(() => {
+		document.querySelector('.generate').scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+	}, 50);
+}
 function scrollToElement(id) {
 	let target = document.querySelector(id);
 	target.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -360,10 +372,24 @@ function generateRandom() {
 	let randomFormat = Math.floor(Math.random()*2);
 	updateSelection("format", randomFormat);
 	setValue('format', ['poster', 'book'][randomFormat]);
+	if (['poster', 'book'][randomFormat] == "poster") {
+		showElement('#format-poster');
+		hideElement('#format-book');
+	} else {
+		showElement('#format-book');
+		hideElement('#format-poster');
+	}
 
 	let randomUnits = Math.floor(Math.random()*2);
 	updateSelection("units", randomUnits);
 	setValue('units', ['imperial', 'metric'][randomUnits]);
+	if (['imperial', 'metric'][randomUnits] == "imperial") {
+		showElement('#units-imperial');
+		hideElement('#units-metric');
+	} else {
+		showElement('#units-metric');
+		hideElement('#units-imperial');
+	}
 
 	let randomSize = Math.floor(Math.random()*7);
 	updateSelection("size", randomSize);
@@ -410,6 +436,77 @@ function generateRandom() {
 	setValue('fontSize', ['48pt', '18pt', '12pt', '10pt', '8pt', '6pt'][randomFontSize]);
 
 	generateCompendium();
+}
+
+// Shuffle responses randomly
+function skipToEnd() {
+	let randomFormat = Math.floor(Math.random()*2);
+	updateSelection("format", randomFormat);
+	setValue('format', ['poster', 'book'][randomFormat]);
+	if (['poster', 'book'][randomFormat] == "poster") {
+		showElement('#format-poster');
+		hideElement('#format-book');
+	} else {
+		showElement('#format-book');
+		hideElement('#format-poster');
+	}
+
+	let randomUnits = Math.floor(Math.random()*2);
+	updateSelection("units", randomUnits);
+	setValue('units', ['imperial', 'metric'][randomUnits]);
+	if (['imperial', 'metric'][randomUnits] == "imperial") {
+		showElement('#units-imperial');
+		hideElement('#units-metric');
+	} else {
+		showElement('#units-metric');
+		hideElement('#units-imperial');
+	}
+
+	let randomSize = Math.floor(Math.random()*7);
+	updateSelection("size", randomSize);
+	setValue('size', ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'][randomSize]);
+
+	let randomOrientation = Math.floor(Math.random()*2);
+	updateSelection("orientation", randomOrientation);
+	setValue('orientation', ['portrait', 'landscape'][randomOrientation]);
+
+	let randomMargins = Math.floor(Math.random()*7);
+	updateSelection("margins", randomMargins);
+	setValue('margins', ['0%', '2%', '4%', '8%', '16%', '24%', '32%'][randomMargins]);
+
+	let randomStyleStart = Math.floor(Math.random()*3);
+	updateSelection("style-start", randomStyleStart);
+	setValue('styleStart', [0, 50, 100][randomStyleStart]);
+
+	let randomStyleEnd = Math.floor(Math.random()*3);
+	updateSelection("style-end", randomStyleEnd);
+	setValue('styleEnd', [0, 50, 100][randomStyleEnd]);
+
+	let randomWeightStart = Math.floor(Math.random()*9);
+	updateSelection("weight-start", randomWeightStart);
+	setValue('weightStart', [100, 200, 300, 400, 500, 600, 700, 800, 900][randomWeightStart]);
+
+	let randomWeightEnd = Math.floor(Math.random()*9);
+	updateSelection("weight-end", randomWeightEnd);
+	setValue('weightEnd', [100, 200, 300, 400, 500, 600, 700, 800, 900][randomWeightEnd]);
+
+	let randomCapitalization = Math.floor(Math.random()*3);
+	updateSelection("capitalization", randomCapitalization);
+	setValue('capitalization', ['none', 'lowercase', 'uppercase'][randomCapitalization]);
+
+	let randomTracking = Math.floor(Math.random()*5);
+	updateSelection("tracking", randomTracking);
+	setValue('tracking', ['1em', '0.5em', '0em', '-0.03em', '-0.1em'][randomTracking]);
+
+	let randomLeading = Math.floor(Math.random()*6);
+	updateSelection("leading", randomLeading);
+	setValue('leading', ['0.6em', '1em', '1.4em', '1.8em', '2.2em', '4.4em'][randomLeading]);
+
+	let randomFontSize = Math.floor(Math.random()*6);
+	updateSelection("font-size", randomFontSize);
+	setValue('fontSize', ['48pt', '18pt', '12pt', '10pt', '8pt', '6pt'][randomFontSize]);
+
+	showAllElements();
 }
 
 // Generate Letter-sized legible book

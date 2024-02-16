@@ -37,7 +37,7 @@
 				Use this website to generate a thesis compendium. Answer a few questions to receive a printed copy.*
 			</p>
 			<p class="settings-desc">
-				*Printer not included.
+				*Printer not included. Works best in Chrome.
 			</p>
 
 			<!-- Format -->
@@ -46,8 +46,8 @@
 				<div class="settings-question-content">
 					<div class="settings-question-text">How long is your attention span?</div>
 					<div class="settings-question-options" data-group="format">
-						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'poster'); hideElement('#format-book'); showElement('#format-poster'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message');" data-iteration="1">Short as hell</div>
-						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'book'); hideElement('#format-poster'); showElement('#format-book'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message');" data-iteration="2">A bit longer than that</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'poster'); hideElement('#format-book'); showElement('#format-poster'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message'); showElement('.skip');" data-iteration="1">Short as hell</div>
+						<div class="settings-question-option" data-active="0" onclick="toggleOption('format', this); setValue('format', 'book'); hideElement('#format-poster'); showElement('#format-book'); showElement('#format-message'); showElement('#units'); scrollToElement('#format-message'); showElement('.skip');" data-iteration="2">A bit longer than that</div>
 					</div>
 				</div>
 			</div>
@@ -266,6 +266,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<button class="generate-button skip" onclick="skipToEnd();" data-active="0">Skip to the end</button>
 
 	<div class="loading">
 		<p>Generating compendium, please wait. . .</p>

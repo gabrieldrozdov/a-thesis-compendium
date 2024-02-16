@@ -35,7 +35,7 @@ function runLines() {
 				runLines();
 			}
 		}
-	}, activeLine.dataset.delay)
+	}, activeLine.dataset.delay*.8)
 }
 
 // Transition between questions
